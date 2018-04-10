@@ -3,7 +3,7 @@
 
 ## Team
 
-  - __Product Owner__: Kuik Akpan
+  - __Product Owner__: Kuyik Akpan
   - __Scrum Master__: Daren Lunsford
   - __Development Team Members__: Sam Norton, Kuyik Akpan, Daren Lunsford
 
