@@ -21,8 +21,9 @@ It's Friday morning and your partner, your friends are starting to text you. "Wh
 
 By sigining up for a **free** account, you customize your Friday experience by interests from a calm evening out to crowdsurfing at the hottest concert that day. You will get a unique experience based on your profile every Friday. You can share your ideas with your friends. Additionally, you will be eligible for special FridayHero perks including special offers to VIP treatment.
 
->### **"** I never knew there were so many things going on in my city before using FridayHero". - Kyle Beal
-## How Do I Get Started? ##
+>### **"** I never knew there were so many things going<br />    on in my city before using FridayHero".<br />    - Kyle Beal
+
+### How Do I Get Started? ###
 It's never to late to start, sign up for free today.
 
 **Why are you still reading**, you should have already been on FridayHero customizing your profile and dusting off that cape.
