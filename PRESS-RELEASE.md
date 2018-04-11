@@ -1,5 +1,3 @@
-# Project Name #
-
 <!-- 
 > This material was originally posted [here](http://www.quora.com/What-is-Amazons-approach-to-product-development-and-product-management). It is reproduced here for posterities sake.
 
@@ -16,8 +14,8 @@ Oh, and I also like to write press-releases in what I call "Oprah-speak" for mai
 Once the project moves into development, the press release can be used as a touchstone; a guiding light. The product team can ask themselves, "Are we building what is in the press release?" If they find they're spending time building things that aren't in the press release (overbuilding), they need to ask themselves why. This keeps product development focused on achieving the customer benefits and not building extraneous stuff that takes longer to build, takes resources to maintain, and doesn't provide real customer benefit (at least not enough to warrant inclusion in the press release).
  -->
  
-## Heading ##
-  > Name the product in a way the reader (i.e. your target customers) will understand.
+## FridayHero! ##
+  > Do you know what you're doing this Friday? We do, be a FridayHero.
 
 ## Sub-Heading ##
   > Describe who the market for the product is and what benefit they get. One sentence only underneath the title.
@@ -26,19 +24,16 @@ Once the project moves into development, the press release can be used as a touc
   > Give a summary of the product and the benefit. Assume the reader will not read anything else so make this paragraph good.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > It's Friday morning and your partner, your friends are starting to text you. "What are we doing tonight" which is answered by "I don't know, what do you want to do" wouldn't you rather answer with "We can do this...". FridayHero delivers a customized Friday Agenda to you inbox and a notification to your phone. You'll have you finger on the pulse of the Friday events. You're the FridayHero!
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
-
-## Quote from You ##
-  > A quote from a spokesperson in your company.
+  > By sigining up for a free account, you customize your Friday experience by interests from a calm evening out to crowdsurfing at the hottest concert that day. You will get a unique experience based on your profile every Friday. You can share your ideas with your friends. Additionally, you will be eligible for special FridayHero perks including special offers to VIP treatment.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
+  > It's never to late to start, sign up for free today.
 
 ## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > I never knew there were so many things going on in my city before using FridayHero. - Kyle Beal
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Why are you still reading, you should have already been on FridayHero customizing your profile and dusting off that cape.
