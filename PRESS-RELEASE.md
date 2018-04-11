@@ -19,12 +19,10 @@ Once the project moves into development, the press release can be used as a touc
 
 It's Friday morning and your partner, your friends are starting to text you. "What are we doing tonight" which is answered by "I don't know, what do you want to do" wouldn't you rather answer with "We can do this...". FridayHero delivers a customized Friday Agenda to you inbox and a notification to your phone. You'll have you finger on the pulse of the Friday events. You're the FridayHero!
 
-By sigining up for a free account, you customize your Friday experience by interests from a calm evening out to crowdsurfing at the hottest concert that day. You will get a unique experience based on your profile every Friday. You can share your ideas with your friends. Additionally, you will be eligible for special FridayHero perks including special offers to VIP treatment.
+By sigining up for a **free** account, you customize your Friday experience by interests from a calm evening out to crowdsurfing at the hottest concert that day. You will get a unique experience based on your profile every Friday. You can share your ideas with your friends. Additionally, you will be eligible for special FridayHero perks including special offers to VIP treatment.
 
-## How to Get Started ##
+>### **"** I never knew there were so many things going on in my city before using FridayHero". - Kyle Beal
+## How Do I Get Started? ##
 It's never to late to start, sign up for free today.
-
-
-> **"** I never knew there were so many things going on in my city before using FridayHero". - Kyle Beal
 
 **Why are you still reading**, you should have already been on FridayHero customizing your profile and dusting off that cape.
