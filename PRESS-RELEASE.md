@@ -15,7 +15,7 @@ Once the project moves into development, the press release can be used as a touc
  -->
  
 ## FridayHero! ##
-Do you know what you're doing this Friday? We do, be a FridayHero.
+#### Do you know what you're doing this Friday? We do, be a FridayHero.
 
 It's Friday morning and your partner, your friends are starting to text you. "What are we doing tonight" which is answered by "I don't know, what do you want to do" wouldn't you rather answer with "We can do this...". FridayHero delivers a customized Friday Agenda to you inbox and a notification to your phone. You'll have you finger on the pulse of the Friday events. You're the FridayHero!
 
@@ -24,6 +24,7 @@ By sigining up for a free account, you customize your Friday experience by inter
 ## How to Get Started ##
 It's never to late to start, sign up for free today.
 
-## Customer Quote ##
-I never knew there were so many things going on in my city before using FridayHero. - Kyle Beal
-Why are you still reading, you should have already been on FridayHero customizing your profile and dusting off that cape.
+
+> **"** I never knew there were so many things going on in my city before using FridayHero". - Kyle Beal
+
+**Why are you still reading**, you should have already been on FridayHero customizing your profile and dusting off that cape.
