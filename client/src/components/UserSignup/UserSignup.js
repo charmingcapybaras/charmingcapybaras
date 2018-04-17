@@ -101,9 +101,16 @@ class UserSignup extends Component {
     } else if (this.state.step === 3) {
       form = <div>form 3</div>;
       console.log('step 3');
+    } else if (this.state.step === 4) {
+      form = <div>form 4</div>;
+      console.log('step 4');
+    } else if (this.state.step > 4) {
+      form = <div>Thank you, your registered</div>;
+      console.log('Completed');
     }
     return (
       <div>
+        <h3>User Signup</h3>
         {form}
         <button type="button" onClick={this.formAdvanceHandler}>
           Next
