@@ -1,22 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import $ from 'jquery';
+// import $ from 'jquery';
+import App from './components/containers/FridayHeroBuilder/FridayHeroBuilder';
 
-class MainComponent extends Component{
-  constructor(){
-    super();
-  }
-
-  componentWillMount() {
-  }
-
-  render(){
-    return (
-      <div>
-        <h1>HELLO WORLD FROM REACT CLIENT FRONTEND!</h1>
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<MainComponent/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('app'));
