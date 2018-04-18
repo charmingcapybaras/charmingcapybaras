@@ -21,7 +21,10 @@ class UserSignup extends Component {
       email: '',
       city: '',
       state: '',
-      zipcode: ''
+      zipcode: '',
+      age: '',
+      gender: '',
+      status: ''
     };
     this.formAdvanceHandler = this.formAdvanceHandler.bind(this);
     this.inputChangedHandler = this.inputChangedHandler.bind(this);
