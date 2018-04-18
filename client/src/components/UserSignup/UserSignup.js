@@ -51,7 +51,7 @@ class UserSignup extends Component {
     event.preventDefault();
     console.log('submitHandler');
     axios
-      .get('/api/user', {
+      .post('/api/user', {
         firstname: 'daren',
         lastname: 'lunsford',
         gender: 'm',

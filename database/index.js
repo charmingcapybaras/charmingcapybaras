@@ -1,21 +1,22 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/capybaras');
+mongoose.connect('mongodb://localhost/fridayhero');
+const User = require('./models/user');
 
 console.log('Connected to DB: USE capybaras database');
 
-let userSchema = mongoose.Schema({
-  userID: { type: Number, index: true, unique: true },
-  fName: String,
-  lName: String,
-  age: { type: Number, min: 18 },
-  zipcode: Number,
-  email: String,
-  telephone: String,
-  gender: String,
-  status: String
-});
+// let userSchema = mongoose.Schema({
+//   userID: { type: Number, index: true, unique: true },
+//   fName: String,
+//   lName: String,
+//   age: { type: Number, min: 18 },
+//   zipcode: Number,
+//   email: String,
+//   telephone: String,
+//   gender: String,
+//   status: String
+// });
 
-let User = mongoose.model('User', userSchema);
+// let User = mongoose.model('User', userSchema);
 
 //dummy data
 // let myUser = new User({

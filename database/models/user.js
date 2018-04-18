@@ -5,18 +5,20 @@ var Schema = mongoose.Schema;
 // Define collection and schema for Users
 let User = new Schema(
   {
-    firstName: STRING,
-    lastName: STRING,
-    address: STRING,
-    telephone: STRING,
-    city: STRING,
-    state: STRING,
-    zipcode: STRING,
-    gender: STRING,
-    status: INTEGER,
-    emailaddress: STRING,
-    admin: Boolean,
-    created_at: Date
+    firstName: String,
+    lastName: String,
+    address: String,
+    telephone: String,
+    city: String,
+    state: String,
+    zipcode: String,
+    gender: String,
+    status: String,
+    experiences: Array,
+    emailaddress: String,
+    lat: Number,
+    lng: Number,
+    admin: Boolean
   },
   {
     collection: 'users'
