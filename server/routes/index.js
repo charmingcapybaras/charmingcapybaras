@@ -47,7 +47,6 @@ router.post('/api/user', (req, res) => {
 
   console.log(address, city, state);
 
-  // AIzaSyButhgj_A7BYr-VtxUcriAEhfSYjnmDDQQ
   axios
     .get(
       `https://maps.googleapis.com/maps/api/geocode/json?address=${address},${city},${state}&key=${geocode_api}`
