@@ -8,6 +8,7 @@
 
 import React, { Component } from 'react';
 import Input from './../../ui/Input/Input';
+import axios from 'axios';
 
 // form configuration
 import registration from './registration';
@@ -21,7 +22,10 @@ class UserSignup extends Component {
       email: '',
       city: '',
       state: '',
-      zipcode: ''
+      zipcode: '',
+      age: '',
+      gender: '',
+      status: ''
     };
     this.formAdvanceHandler = this.formAdvanceHandler.bind(this);
     this.inputChangedHandler = this.inputChangedHandler.bind(this);
@@ -46,6 +50,19 @@ class UserSignup extends Component {
   submitHandler(event) {
     event.preventDefault();
     console.log('submitHandler');
+    axios
+      .post('/api/user', {
+        firstname: 'daren',
+        lastname: 'lunsford',
+        gender: 'm',
+        status: 'married'
+      })
+      .then(response => {
+        console.log(response);
+      })
+      .catch(err => {
+        console.log('error', err);
+      });
   }
 
   render() {
@@ -93,6 +110,10 @@ class UserSignup extends Component {
           onClick={() => this.formAdvanceHandler(this.state.step)}
         >
           Next
+        </button>
+        <p />
+        <button onClick={this.submitHandler} type="button">
+          submit
         </button>
       </div>
     );

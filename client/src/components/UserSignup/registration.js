@@ -28,14 +28,7 @@ const registration = [
             required: true
           },
           valid: false
-        }
-      }
-    ]
-  },
-  {
-    step: 2,
-    form: [
-      {
+        },
         city: {
           elementType: 'input',
           elementConfig: {
@@ -48,13 +41,79 @@ const registration = [
             required: true
           },
           valid: false
-        },
+        }
+      }
+    ]
+  },
+  {
+    step: 2,
+    form: [
+      {
         state: {
           elementType: 'input',
           elementConfig: {
             type: 'text',
             placeholder: 'State',
             label: 'State'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        zipcode: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Zipcode',
+            label: 'Zipcode'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        }
+      }
+    ]
+  },
+  {
+    step: 3,
+    form: [
+      {
+        age: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Age',
+            label: 'Age'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        gender: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Gender',
+            label: 'Gender'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        status: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Status',
+            label: 'Status'
           },
           value: '',
           validation: {
