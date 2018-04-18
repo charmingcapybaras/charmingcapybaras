@@ -27,4 +27,17 @@ router.get(
   }
 );
 
+router.post('/api/user', (req, res) => {
+  db.collection('user').save(req.body, (err, results) => {
+    console.log(req.body);
+    req.status('200').send();
+    // if (err) {
+    //   console.log('could not add user to the datbase');
+    //   res.status('404').send();
+    // } else {
+    //   res.status('201').send();
+    // }
+  });
+});
+
 module.exports = router;

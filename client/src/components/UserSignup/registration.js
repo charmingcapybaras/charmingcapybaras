@@ -28,14 +28,7 @@ const registration = [
             required: true
           },
           valid: false
-        }
-      }
-    ]
-  },
-  {
-    step: 2,
-    form: [
-      {
+        },
         city: {
           elementType: 'input',
           elementConfig: {
@@ -48,7 +41,14 @@ const registration = [
             required: true
           },
           valid: false
-        },
+        }
+      }
+    ]
+  },
+  {
+    step: 2,
+    form: [
+      {
         state: {
           elementType: 'input',
           elementConfig: {
