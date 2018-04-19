@@ -15,8 +15,8 @@ body{
   background-repeat: no-repeat;
   background-position: top center;
   overflow: hidden;
-  -ms-overflow-style: none;  
-  overflow: -moz-scrollbars-none; 
+  -ms-overflow-style: none;
+  overflow: -moz-scrollbars-none;
 }
 
 .box{
@@ -27,8 +27,8 @@ body{
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
 }
 
-body::-webkit-scrollbar { 
-  display: none; 
+body::-webkit-scrollbar {
+  display: none;
 }
 
 /* CONTENT STYLES */
@@ -169,7 +169,7 @@ a.underline{
 
 .margin-help{
   margin-top: 35px;
-} 
+}
 
 .link-bg{
   color: #fff;

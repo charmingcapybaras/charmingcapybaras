@@ -4,9 +4,9 @@ const router = express.Router();
 const db = require('../../database/index');
 const axios = require('axios');
 const User = require('../../database/models/user');
-const config = require('../../config/config');
+// const config = require('../../config/config');
 
-const geocode_api = config.google_geocode_api;
+// const geocode_api = config.google_geocode_api;
 
 // router.get('/', (req, res, next) => {
 //   res.status(201).send('hello from express');
