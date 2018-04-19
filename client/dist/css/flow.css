@@ -1,0 +1,252 @@
+/* GOOLE FONTS */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+
+
+/* GENERAL STYLES */
+body{
+  font: 1em "Poppins", sans-serif;
+  background: url('../img/bg-background.jpg');
+  width: 100%;
+  height: auto;
+  color: #00000a;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  overflow: hidden;
+  -ms-overflow-style: none;  
+  overflow: -moz-scrollbars-none; 
+}
+
+.box{
+  vertical-align: middle;
+  margin: 8% auto;
+	background-color: #f2f4f7;
+	-webkit-box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar { 
+  display: none; 
+}
+
+/* CONTENT STYLES */
+
+.content{
+  padding: 50px 0px 0px 75px;
+  min-height: 655px;
+}
+
+/* NAVIATION STYLES */
+
+.navigation{
+  background-color: #3C2790;
+  padding: 50px 60px 50px 70px;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.8em;
+}
+
+.navbar-brand:hover{
+  color: #c4bbed;
+}
+
+.promo{
+  color: #c6c6c6;
+  font-weight: 400;
+  font-size: 1.3em;
+  margin: 20px 0px;
+}
+
+li.nav-item{
+  color: #fff;
+  margin: 15px 0px;
+  list-style: none;
+  background: url("../img/circle.png") left center no-repeat;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+}
+
+.lead-txt{
+  font-size: 2.4em;
+  line-height: 1.2em;
+  margin-left: 10px;
+}
+
+
+.fh-form{
+  margin: 45px 0px;
+}
+
+.help-left{
+  margin-left: -14px;
+}
+
+div.form-check{
+  margin-bottom: 60px;
+}
+
+a.underline{
+  text-decoration: underline;
+  color: #D159BD;
+  font-weight: 600;
+ }
+
+ input#fh-email,  input#fh-pwd,  input#fh-pwd-again{
+ padding: 10px 10px;
+ }
+
+ .form-control:focus {
+  border-color: #C056BB;
+  box-shadow: inset 0 1px 1px rgba(192, 86, 187, 0.075), 0 0 8px rgba(192, 86, 187, 0.6);
+}
+
+
+ .sign-btn{
+  font-size: 1em;
+  border: 2px solid #C056BB;
+  border-radius: 25px;
+  padding: 8px 20px;
+  background: transparent;
+  color: #C056BB;
+  margin-top: -10px;
+ }
+
+ .sign-btn:hover, .sign-btn:focus, .sign-btn:active, .btn-primary:active:focus {
+   background: #C056BB !important;
+   color: #fff;
+   border: 2px solid #fff !important;
+   outline: none !important;
+
+ }
+
+ .back-btn{
+  font-size: 1em;
+  border: 2px solid #C056BB;
+  border-radius: 25px;
+  padding: 8px 20px;
+  background: transparent;
+  color: #C056BB;
+  margin-top: -10px;
+ }
+
+ .back-btn:hover, .back-btn:focus, .back-btn:active, .btn-primary:active:focus {
+   background: #C056BB !important;
+   color: #fff;
+   border: 2px solid #fff !important;
+   outline: none !important;
+
+ }
+
+ .next-btn{
+  font-size: 1em;
+  background: #C056BB !important;
+  padding: 8px 20px;
+  color: #fff;
+  border: 2px solid #fff !important;
+  outline: none !important;
+  margin-top: -12px;
+  border-radius: 25px;
+ }
+
+ .next-btn:hover, .next-btn:focus, .next-btn:active, .next-btn:active:focus, .btn-primary:active:focus{
+   background-color: transparent !important;
+   color: rgb(243, 99, 236) !important;
+   border: 2px solid #C056BB !important;
+   outline: none !important;
+ }
+
+
+ .btn:focus,.btn:active:focus,.btn.active:focus,
+ .btn.focus,.btn:active.focus,.btn.active.focus {
+     outline: none !important;
+     box-shadow:none !important;
+ }
+
+.margin-help{
+  margin-top: 35px;
+} 
+
+.link-bg{
+  color: #fff;
+  font-size: 1.1em;
+}
+
+.link-bg:hover{
+  color: #c4bbed;
+}
+
+.box-experience{
+  padding: 35px 5px;
+  border: 1px solid #dedede;
+}
+
+
+/* RESPONSIVE MEDIA QUERIES */
+
+ @media only screen and (max-width: 1366px){
+  body{
+    font: 1em "Poppins", sans-serif;
+    background: url('../img/bg-background.jpg');
+    width: 100%;
+    height: auto;
+    color: #00000a;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    overflow: scroll;
+  }
+ }
+
+ @media only screen and (max-width: 1024px){
+  body{
+    background-image: linear-gradient(to top, #d159bd, #c154b9, #b14eb5, #a14ab1, #9045ac);
+  }
+ }
+
+ @media only screen and (max-width: 800px){
+  .navigation, .content{
+    width: 100%;
+    display: block;
+    padding: 50px 70px;
+  }
+}
+
+ @media only screen and (max-width: 768px){
+   .navigation, .content{
+     width: 100%;
+     display: block;
+     padding: 50px 70px;
+   }
+   .next-btn{
+    margin-top: 0px;
+   }
+ }
+
+ @media only screen and (max-width: 414px){
+  .navigation, .content{
+    width: 100%;
+    display: block;
+    padding: 50px 20px;
+  }
+ .text-right{
+    display: block !important;
+    float: none !important;
+    width: 100%;
+  }
+
+  button.btn.btn-primary.sign-btn{
+    display: block !important;
+    float: none !important;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  .next-btn{
+    margin-top: -75px;
+   }
+}
