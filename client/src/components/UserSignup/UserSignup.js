@@ -8,6 +8,8 @@
 
 import React, { Component } from 'react';
 import Input from './../../ui/Input/Input';
+import NoLinksNavigation from './NoLinksNavigation';
+import WrapperBox from './WrapperBox';
 import axios from 'axios';
 
 // form configuration
@@ -83,8 +85,11 @@ class UserSignup extends Component {
           config: registration[this.state.step].form[0][key]
         });
       }
+     
       form = (
         <div>
+          <WrapperBox>
+          <NoLinksNavigation />
           {formElementsArray.map(formEl => (
             <Input
               key={formEl.id}
@@ -95,6 +100,7 @@ class UserSignup extends Component {
               changed={this.inputChangedHandler}
             />
           ))}
+          </WrapperBox>
         </div>
       );
     }
@@ -103,7 +109,6 @@ class UserSignup extends Component {
 
     return (
       <div>
-        <h3>User Signup</h3>
         {form}
         <button
           type="button"
