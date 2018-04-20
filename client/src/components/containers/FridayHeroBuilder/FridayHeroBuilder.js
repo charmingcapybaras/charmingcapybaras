@@ -19,10 +19,10 @@ class FridayHeroBuilder extends Component {
     return (
       <BrowserRouter>
         <div>
-          <Navigation />
+          {/* <Navigation /> */}
           <Route exact path="/" component={HomePage} />
           <Route exact path="/user" component={UserSignup} />
-          <Footer />
+          {/* <Footer /> */}
         </div>
       </BrowserRouter>
     );
