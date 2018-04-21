@@ -135,7 +135,10 @@ class UserSignup extends Component {
     let sidebar = <Sidebar />;
 
     let backBtn = (
-      <button type="button" className="btn btn-primary back-btn">
+      <button 
+      onClick={() => this.formBackHandler(this.state.step)}
+      type="button" 
+      className="btn btn-primary back-btn">
         Back
       </button>
     );
@@ -150,7 +153,9 @@ class UserSignup extends Component {
     );
     if (this.state.step > 0) {
       sidebar = <ProfileSidebar step={this.state.step} regstep={registration}/>;
-      
+    }
+    if (this.state.step === 0){
+      backBtn = null;
     }
 
     if (this.state.step === registration.length - 1) {

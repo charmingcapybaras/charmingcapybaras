@@ -12,15 +12,6 @@ const profileSidebar = props => {
             <li className="nav-item">
               <a className={props.step >= 2  ? "nav-link link-bg circle active-circle" : "nav-link link-bg circle inactive-circle"}>Choose Experience</a>
             </li>
-            <li className="nav-item">
-              <a className={props.step >= 3 ? "nav-link link-bg circle active-circle" : "nav-link link-bg circle inactive-circle"}>Basic Info</a>
-            </li>
-            <li className="nav-item">
-              <a className={props.step >= 4 ? "nav-link link-bg circle active-circle" : "nav-link link-bg circle inactive-circle"}>Interests</a>
-            </li>
-            <li className="nav-item">
-              <a className={props.step >= 5 ? "nav-link link-bg circle active-circle" : "nav-link link-bg circle inactive-circle"} >Confirm</a>
-            </li>
           </ul>
         </div>
         );
