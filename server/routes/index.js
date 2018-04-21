@@ -16,6 +16,23 @@ const User = require('../../database/models/user');
 //   res.status(201).send('api endpoint');
 // });
 
+// Get User by id
+router.get(
+  '/api/user/:id',
+  (req, res, next) => {
+    console.log('userID id', req.params.id);
+    User.findById(req.params.id, function(err, user) {
+      console.log(user.firstName);
+
+      res.send(user);
+    });
+  },
+
+  (req, res) => {
+    res.status(201).send('specific user endpoint');
+  }
+);
+
 router.get('/api/user/', (req, res, next) => {
   User.find(function(err, itms) {
     if (err) {
@@ -25,18 +42,6 @@ router.get('/api/user/', (req, res, next) => {
     }
   });
 });
-
-router.get(
-  '/api/user/:id',
-  (req, res, next) => {
-    db.userById(req.params.id);
-    //res.status(201).send('specific user endpoint')
-    next();
-  },
-  (req, res) => {
-    res.status(201).send('specific user endpoint');
-  }
-);
 
 router.post('/api/user', (req, res) => {
   var user = new User(req.body);

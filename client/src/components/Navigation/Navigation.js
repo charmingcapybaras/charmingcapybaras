@@ -2,6 +2,7 @@
 import React from 'react';
 
 const Navigation = props => {
+  console.log(props.topNav);
   const NAV_ITEMS = props.topNav.map(item => {
     return (
       <li key={item.id} className="nav-item active">

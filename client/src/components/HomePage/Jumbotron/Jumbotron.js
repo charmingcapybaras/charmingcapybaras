@@ -19,7 +19,7 @@ const jumbotron = () => {
             <p className="lead">
               <a
                 className="btn btn-primary btn-lg signup btn-animated"
-                href="#"
+                href="/user"
                 role="button"
               >
                 SIGN UP TODAY

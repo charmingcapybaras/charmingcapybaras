@@ -132,13 +132,12 @@ class UserSignup extends Component {
 
     console.log(JSON.stringify(this.state, undefined, 2));
 
- 
-
     let backBtn = (
-      <button 
-      onClick={() => this.formBackHandler(this.state.step)}
-      type="button" 
-      className="btn btn-primary back-btn">
+      <button
+        onClick={() => this.formBackHandler(this.state.step)}
+        type="button"
+        className="btn btn-primary back-btn"
+      >
         Back
       </button>
     );
@@ -154,7 +153,7 @@ class UserSignup extends Component {
     // if (this.state.step > 0) {
     //   sidebar = <ProfileSidebar step={this.state.step}/>;
     // }
-    if (this.state.step === 0){
+    if (this.state.step === 0) {
       backBtn = null;
     }
 
@@ -177,14 +176,14 @@ class UserSignup extends Component {
       <section className="bg-wrapper">
         <div id="signup" className="container box">
           <div className="row">
-          <ProfileSidebar step={this.state.step}/>
+            <ProfileSidebar step={this.state.step} />
             <div className="col-lg-7 col-md-12 col-sm-12 content animated fadeIn">
               <h2 className="lead-txt">
                 It's easy to start being a Friday Hero create your account
                 today!
               </h2>
               <form className="fh-form">
-              {form}
+                {form}
                 <div className="container">
                   <div className="row margin-help">
                     <div className="col-md-6 col-sm-12">{backBtn}</div>
