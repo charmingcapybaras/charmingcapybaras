@@ -7,8 +7,13 @@
 */
 
 import React, { Component } from 'react';
-import Input from './../../ui/Input/Input';
 import axios from 'axios';
+
+import Input from './../../ui/Input/Input';
+import css from './userSignup.css';
+import Aux from './../../hoc/Aux/Aux';
+import Sidebar from './Sidebar/Sidebar';
+import ProfileSidebar from './ProfileSidebar/ProfileSidebar';
 
 // form configuration
 import registration from './registration';
@@ -83,39 +88,82 @@ class UserSignup extends Component {
           config: registration[this.state.step].form[0][key]
         });
       }
-     
+
       form = (
-        <div>
-          {formElementsArray.map(formEl => (
-            <Input
-              key={formEl.id}
-              elementType={formEl.config.elementType}
-              elementConfig={formEl.config.elementConfig}
-              value={this.state[formEl.id]}
-              name={formEl.id}
-              changed={this.inputChangedHandler}
-            />
-          ))}
+        <div className="form-group">
+          <div className="row">
+            <div className="col-md-12 col-sm-12">
+              {formElementsArray.map(formEl => (
+                <Input
+                  key={formEl.id}
+                  elementType={formEl.config.elementType}
+                  elementConfig={formEl.config.elementConfig}
+                  value={this.state[formEl.id]}
+                  name={formEl.id}
+                  label={formEl.config.elementConfig.label}
+                  changed={this.inputChangedHandler}
+                />
+              ))}
+            </div>
+          </div>
         </div>
       );
     }
 
     console.log(JSON.stringify(this.state, undefined, 2));
 
+    let sidebar = <Sidebar />;
+
+    if (this.state.step > 0) {
+      sidebar = <ProfileSidebar step={this.state.step} />;
+    }
+
     return (
-      <div>
-        {form}
-        <button
-          type="button"
-          onClick={() => this.formAdvanceHandler(this.state.step)}
-        >
-          Next
-        </button>
-        <p />
-        <button onClick={this.submitHandler} type="button">
-          submit
-        </button>
-      </div>
+      <section className="bg-wrapper">
+        <div id="signup" className="container box">
+          <div className="row">
+            {sidebar}
+            <div className="col-lg-7 col-md-12 col-sm-12 content animated fadeIn">
+              <h2 className="lead-txt">
+                It's easy to start being a Friday Hero create your account
+                today!
+              </h2>
+              <form className="fh-form">
+                <div className="container">
+                  {form}
+                  <button
+                    type="button"
+                    onClick={() => this.formAdvanceHandler(this.state.step)}
+                  >
+                    Next
+                  </button>
+                  <p />
+                  <button onClick={this.submitHandler} type="button">
+                    submit
+                  </button>
+
+                  <div className="row margin-help">
+                    <div className="col-md-6 col-sm-12">
+                      <button type="button" class="btn btn-primary back-btn">
+                        Back
+                      </button>
+                    </div>
+                    <div className="col-md-6 col-sm-12 text-right">
+                      <button
+                        onClick={() => this.formAdvanceHandler(this.state.step)}
+                        type="button"
+                        className="btn btn-primary next-btn"
+                      >
+                        Next
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
     );
   }
 }
