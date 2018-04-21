@@ -41,10 +41,16 @@ class UserSignup extends Component {
     this.formAdvanceHandler = this.formAdvanceHandler.bind(this);
     this.inputChangedHandler = this.inputChangedHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
+    this.formBackHandler = this.formBackHandler.bind(this);
   }
 
   formAdvanceHandler() {
     this.setState({ step: +this.state.step + 1 });
+    console.log(this.state.step);
+  }
+
+  formBackHandler() {
+    this.setState({ step: +this.state.step - 1 });
     console.log(this.state.step);
   }
 
@@ -143,7 +149,8 @@ class UserSignup extends Component {
       </button>
     );
     if (this.state.step > 0) {
-      sidebar = <ProfileSidebar step={this.state.step} />;
+      sidebar = <ProfileSidebar step={this.state.step} regstep={registration}/>;
+      
     }
 
     if (this.state.step === registration.length - 1) {
@@ -173,18 +180,6 @@ class UserSignup extends Component {
               </h2>
               <form className="fh-form">
                 <div className="container">
-                  {form}
-                  {/* <button
-                    type="button"
-                    onClick={() => this.formAdvanceHandler(this.state.step)}
-                  >
-                    Next
-                  </button>
-                  <p />
-                  <button onClick={this.submitHandler} type="button">
-                    submit
-                  </button> */}
-
                   <div className="row margin-help">
                     <div className="col-md-6 col-sm-12">{backBtn}</div>
                     <div className="col-md-6 col-sm-12 text-right">
