@@ -3,19 +3,6 @@ const registration = [
     step: 1,
     form: [
       {
-        name: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'User Name',
-            label: 'User Name'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
         email: {
           elementType: 'input',
           elementConfig: {
@@ -29,12 +16,12 @@ const registration = [
           },
           valid: false
         },
-        city: {
-          elementType: 'input',
+        password: {
+          elementType: 'password',
           elementConfig: {
-            type: 'text',
-            placeholder: 'City',
-            label: 'Your City'
+            type: 'password',
+            placeholder: 'Password',
+            label: 'Password'
           },
           value: '',
           validation: {
@@ -49,6 +36,58 @@ const registration = [
     step: 2,
     form: [
       {
+        firstName: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'First Name',
+            label: 'First Name'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        lastName: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Last Name',
+            label: 'Last Name'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        address: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Address',
+            label: 'Address'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        city: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'City',
+            label: 'City'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
         state: {
           elementType: 'input',
           elementConfig: {
@@ -62,7 +101,7 @@ const registration = [
           },
           valid: false
         },
-        zipcode: {
+        zipCode: {
           elementType: 'input',
           elementConfig: {
             type: 'text',
@@ -82,12 +121,15 @@ const registration = [
     step: 3,
     form: [
       {
-        age: {
-          elementType: 'input',
+        price_level: {
+          elementType: 'number',
           elementConfig: {
-            type: 'text',
-            placeholder: 'Age',
-            label: 'Age'
+            type: 'number',
+            step: '1',
+            min: 0,
+            max: 5,
+            placeholder: 'Price Range',
+            label: 'Price Range'
           },
           value: '',
           validation: {
@@ -95,12 +137,15 @@ const registration = [
           },
           valid: false
         },
-        gender: {
-          elementType: 'input',
+        rating: {
+          elementType: 'number',
           elementConfig: {
-            type: 'text',
-            placeholder: 'Gender',
-            label: 'Gender'
+            type: 'number',
+            step: '1',
+            min: 0,
+            max: 5,
+            placeholder: 'Rating',
+            label: 'Rating'
           },
           value: '',
           validation: {
@@ -114,6 +159,19 @@ const registration = [
             type: 'text',
             placeholder: 'Status',
             label: 'Status'
+          },
+          value: '',
+          validation: {
+            required: true
+          },
+          valid: false
+        },
+        gender: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'Gender',
+            label: 'Gender'
           },
           value: '',
           validation: {

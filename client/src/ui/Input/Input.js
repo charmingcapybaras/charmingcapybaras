@@ -9,7 +9,7 @@ import React from 'react';
 const input = props => {
   let inputElement = null;
   // Setup the different form components depicted by the element type
-  if (props.elementType === 'input') {
+  if (props.elementType === 'input' || props.elementType === 'password') {
     inputElement = (
       <input
         {...props.elementConfig}
@@ -26,6 +26,17 @@ const input = props => {
         {...props.elementConfig}
         value={props.value}
         onChange={props.changed}
+        className="form-control"
+      />
+    );
+  } else if (props.elementType === 'number') {
+    inputElement = (
+      <input
+        {...props.elementConfig}
+        value={props.value}
+        name={props.name}
+        onChange={props.changed}
+        value={props.value}
         className="form-control"
       />
     );
