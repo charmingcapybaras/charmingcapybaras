@@ -31,7 +31,7 @@ const HomePage = props => {
                 </h4>
                 <a
                   className="btn btn-primary btn-lg signup-section btn-animated"
-                  href="#"
+                  href="/user"
                   role="button"
                 >
                   SIGN UP TODAY
@@ -70,7 +70,7 @@ const HomePage = props => {
           <div className="row">
             <div className="col-md-6 pitch-column">
               <img
-                src="img/features.jpg"
+                src="/img/features.jpg"
                 className="img-thumbnail"
                 alt="Cinque Terre"
               />
@@ -86,7 +86,7 @@ const HomePage = props => {
               </h4>
               <a
                 className="btn btn-primary btn-lg signup-section btn-animated"
-                href="#"
+                href="/user"
                 role="button"
               >
                 SIGN UP TODAY

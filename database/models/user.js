@@ -21,6 +21,7 @@ let User = new Schema(
     rating: Number,
     lat: Number,
     lng: Number,
+    agenda: Array,
     admin: Boolean
   },
   {

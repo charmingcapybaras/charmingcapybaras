@@ -186,6 +186,10 @@ class UserSignup extends Component {
               <form className="fh-form">
               {form}
                 <div className="container">
+<<<<<<< HEAD
+=======
+                  {form}
+>>>>>>> Use Agenda is stubbed out and ready for ui and layout
                   <div className="row margin-help">
                     <div className="col-md-6 col-sm-12">{backBtn}</div>
                     <div className="col-md-6 col-sm-12 text-right">
