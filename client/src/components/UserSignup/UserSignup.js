@@ -8,8 +8,6 @@
 
 import React, { Component } from 'react';
 import Input from './../../ui/Input/Input';
-import NoLinksNavigation from './NoLinksNavigation';
-import WrapperBox from './WrapperBox';
 import axios from 'axios';
 
 // form configuration
