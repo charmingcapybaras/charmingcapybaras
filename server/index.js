@@ -2,6 +2,7 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index');
+// const worker = require('../workers/agenda-helper'); // chron job
 
 // call express
 const app = express();

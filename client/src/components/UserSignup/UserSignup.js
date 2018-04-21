@@ -17,20 +17,26 @@ import ProfileSidebar from './ProfileSidebar/ProfileSidebar';
 
 // form configuration
 import registration from './registration';
+console.log('number of steps', registration.length);
 
 class UserSignup extends Component {
   constructor(props) {
     super(props);
     this.state = {
       step: 0,
-      name: '',
+      firstName: '',
+      lastName: '',
+      username: '',
       email: '',
+      address: '',
       city: '',
       state: '',
       zipcode: '',
       age: '',
       gender: '',
-      status: ''
+      status: '',
+      price_level: '',
+      rating: ''
     };
     this.formAdvanceHandler = this.formAdvanceHandler.bind(this);
     this.inputChangedHandler = this.inputChangedHandler.bind(this);
@@ -57,13 +63,21 @@ class UserSignup extends Component {
     console.log('submitHandler');
     axios
       .post('/api/user', {
-        firstname: 'daren',
-        lastname: 'lunsford',
-        gender: 'm',
-        status: 'married'
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        password: this.state.password,
+        address: this.state.address,
+        city: this.state.city,
+        state: this.state.state,
+        zipCode: this.state.zipCode,
+        price_level: this.state.price_level,
+        rating: this.state.rating,
+        gender: this.state.gender,
+        status: this.state.status
       })
       .then(response => {
         console.log(response);
+        this.formAdvanceHandler(this.state.step);
       })
       .catch(err => {
         console.log('error', err);
@@ -114,8 +128,37 @@ class UserSignup extends Component {
 
     let sidebar = <Sidebar />;
 
+    let backBtn = (
+      <button type="button" className="btn btn-primary back-btn">
+        Back
+      </button>
+    );
+    let nextBtn = (
+      <button
+        onClick={() => this.formAdvanceHandler(this.state.step)}
+        type="button"
+        className="btn btn-primary next-btn"
+      >
+        Next
+      </button>
+    );
     if (this.state.step > 0) {
       sidebar = <ProfileSidebar step={this.state.step} />;
+    }
+
+    if (this.state.step === registration.length - 1) {
+      nextBtn = (
+        <button
+          onClick={this.submitHandler}
+          type="button"
+          className="btn btn-primary next-btn"
+        >
+          Submit
+        </button>
+      );
+    } else if (this.state.step >= registration.length) {
+      nextBtn = null;
+      backBtn = null;
     }
 
     return (
@@ -131,7 +174,7 @@ class UserSignup extends Component {
               <form className="fh-form">
                 <div className="container">
                   {form}
-                  <button
+                  {/* <button
                     type="button"
                     onClick={() => this.formAdvanceHandler(this.state.step)}
                   >
@@ -140,22 +183,12 @@ class UserSignup extends Component {
                   <p />
                   <button onClick={this.submitHandler} type="button">
                     submit
-                  </button>
+                  </button> */}
 
                   <div className="row margin-help">
-                    <div className="col-md-6 col-sm-12">
-                      <button type="button" class="btn btn-primary back-btn">
-                        Back
-                      </button>
-                    </div>
+                    <div className="col-md-6 col-sm-12">{backBtn}</div>
                     <div className="col-md-6 col-sm-12 text-right">
-                      <button
-                        onClick={() => this.formAdvanceHandler(this.state.step)}
-                        type="button"
-                        className="btn btn-primary next-btn"
-                      >
-                        Next
-                      </button>
+                      {nextBtn}
                     </div>
                   </div>
                 </div>

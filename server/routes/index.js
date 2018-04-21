@@ -4,9 +4,9 @@ const router = express.Router();
 const db = require('../../database/index');
 const axios = require('axios');
 const User = require('../../database/models/user');
-// const config = require('../../config/config');
+const config = require('../../config/config');
 
-// const geocode_api = config.google_geocode_api;
+const geocode_api = config.google_geocode_api;
 
 // router.get('/', (req, res, next) => {
 //   res.status(201).send('hello from express');
@@ -43,7 +43,7 @@ router.post('/api/user', (req, res) => {
 
   var city = encodeURI(req.body.city);
   var state = encodeURI(req.body.state);
-  var address = encodeURI(req.body.street);
+  var address = encodeURI(req.body.address);
 
   console.log(address, city, state);
 
@@ -56,14 +56,13 @@ router.post('/api/user', (req, res) => {
       console.log('lat', response.data.results[0].geometry.location);
       user.lat = response.data.results[0].geometry.location.lat;
       user.lng = response.data.results[0].geometry.location.lng;
-      user.experiences = ['sophisticated', 'trendy', 'bohemian'];
 
       //  save the new user:
       user.save(err => {
         if (err) {
           console.log('problem adding user', err);
         } else {
-          res.status(201).send();
+          res.status(200).send();
         }
       });
     })

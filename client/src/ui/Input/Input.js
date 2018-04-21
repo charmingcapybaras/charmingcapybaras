@@ -9,7 +9,7 @@ import React from 'react';
 const input = props => {
   let inputElement = null;
   // Setup the different form components depicted by the element type
-  if (props.elementType === 'input') {
+  if (props.elementType === 'input' || props.elementType === 'password') {
     inputElement = (
       <input
         {...props.elementConfig}
