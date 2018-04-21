@@ -122,9 +122,12 @@ const registration = [
     form: [
       {
         price_level: {
-          elementType: 'input',
+          elementType: 'number',
           elementConfig: {
-            type: 'text',
+            type: 'number',
+            step: '1',
+            min: 0,
+            max: 5,
             placeholder: 'Price Range',
             label: 'Price Range'
           },
@@ -135,9 +138,12 @@ const registration = [
           valid: false
         },
         rating: {
-          elementType: 'input',
+          elementType: 'number',
           elementConfig: {
-            type: 'text',
+            type: 'number',
+            step: '1',
+            min: 0,
+            max: 5,
             placeholder: 'Rating',
             label: 'Rating'
           },

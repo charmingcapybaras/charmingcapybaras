@@ -29,6 +29,17 @@ const input = props => {
         className="form-control"
       />
     );
+  } else if (props.elementType === 'number') {
+    inputElement = (
+      <input
+        {...props.elementConfig}
+        value={props.value}
+        name={props.name}
+        onChange={props.changed}
+        value={props.value}
+        className="form-control"
+      />
+    );
   } else if (props.elementType === 'select') {
     inputElement = (
       <select
