@@ -88,8 +88,6 @@ class UserSignup extends Component {
      
       form = (
         <div>
-          <WrapperBox>
-          <NoLinksNavigation />
           {formElementsArray.map(formEl => (
             <Input
               key={formEl.id}
@@ -100,7 +98,6 @@ class UserSignup extends Component {
               changed={this.inputChangedHandler}
             />
           ))}
-          </WrapperBox>
         </div>
       );
     }
