@@ -51,11 +51,26 @@
 
 #signup li.nav-item{
   color: #fff;
+}
+
+.circle{
   margin: 15px 0px;
   list-style: none;
-  background: url("/img/circle.png") left center no-repeat;
-  padding-left: 30px;
+  padding-left: 47px;
   background-repeat: no-repeat;
+}
+
+.active-circle{
+  background: url("/img/circle.png") left center no-repeat;
+}
+
+.inactive-circle{
+  background: url("/img/inactive-circle.png") left center no-repeat;
+}
+
+
+#signup li.nav-item a{
+  cursor: default;
 }
 
 #signup .lead-txt{

@@ -1,6 +1,7 @@
 const registration = [
   {
     step: 1,
+    instruction: 'Your Profile',
     form: [
       {
         email: {
@@ -34,6 +35,7 @@ const registration = [
   },
   {
     step: 2,
+    instruction: 'Basic Info',
     form: [
       {
         firstName: {
@@ -119,6 +121,7 @@ const registration = [
   },
   {
     step: 3,
+    instruction: 'Interests',
     form: [
       {
         price_level: {

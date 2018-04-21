@@ -10,20 +10,20 @@ const sidebar = () => {
 
       <ul className="nav flex-column">
         <li className="nav-item">
-          <a className="nav-link active">
+          <a className="nav-link circle active-circle active">
             Receive your weekly Friday Hero agenda
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link">Personalize your Friday experiences</a>
+          <a className="nav-link circle active-circle">Personalize your Friday experiences</a>
         </li>
         <li className="nav-item">
-          <a className="nav-link">
+          <a className="nav-link circle active-circle">
             No more wonering what to do with your friends on Friday
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link">
+          <a className="nav-link circle active-circle">
             Make reservations, buy concert tickets and more
           </a>
         </li>
