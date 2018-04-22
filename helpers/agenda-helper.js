@@ -16,7 +16,7 @@ mongoose.connect(
 );
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
-var Agenda = require('./../database/models/agenda');
+//var Agenda = require('./../database/models/agenda');
 
 // make request to /api/users
 // get all users
@@ -52,3 +52,5 @@ let save = weeklyAgenda => {
     );
   }, this);
 };
+
+module.exports = getEmails;
