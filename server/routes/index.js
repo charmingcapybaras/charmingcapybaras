@@ -4,9 +4,10 @@ const router = express.Router();
 const db = require('../../database/index');
 const axios = require('axios');
 const User = require('../../database/models/user');
-// const config = require('../../config/config');
+var bcrypt = require('bcrypt');
+const config = require('../../config/config');
 
-// const geocode_api = config.google_geocode_api;
+const geocode_api = config.google_geocode_api;
 
 // router.get('/', (req, res, next) => {
 //   res.status(201).send('hello from express');
@@ -50,6 +51,7 @@ router.post('/api/user', (req, res) => {
   var state = encodeURI(req.body.state);
   var address = encodeURI(req.body.address);
 
+  
   console.log(address, city, state);
 
   axios
@@ -61,6 +63,18 @@ router.post('/api/user', (req, res) => {
       console.log('lat', response.data.results[0].geometry.location);
       user.lat = response.data.results[0].geometry.location.lat;
       user.lng = response.data.results[0].geometry.location.lng;
+      
+      console.log('here is the user password... >>>>>>>>>', req.body.password)
+      
+        bcrypt.hash(req.body.password, 10, function(err, hash){
+          if(err){
+            console.log(err);
+          }
+      
+          user.password = hash;
+          console.log('this is the hash password >>>>>>>>>', user.password)
+        });
+
 
       //  save the new user:
       user.save(err => {
