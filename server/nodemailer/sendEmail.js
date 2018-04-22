@@ -1,57 +1,69 @@
 const nodemailer = require ('nodemailer');
-const archive = require('../../helpers/email-helper');
+//const archive = require('../../helpers/email-helper');
+var axios = require('axios');
 // const config = require('../../config/config');
-//console.log('HEEeEEy', JSON.stringif);
-// var cron = require('cron');
+var cron = require('cron');
+var CronJob = require('cron').CronJob;
 
-// var CronJob = require('cron').CronJob;
+new CronJob(
+  '*/1 * * * ',
+  function() {
+    console.log('cronjob running');
+    getEmailAddresses();
+  },
+  null,
+  true,
+  'America/Los_Angeles'
+);
 
-// new CronJob(
-//   '*/1 * * * ',
-//   function() {
-//     console.log('cronjob running');
-//     //let emails = archive.getEmails();
-       //emails.forEach(user => sendEmails(user))
-//   },
-//   null,
-//   true,
-//   'America/Los_Angeles'
-// );
+//let result = archive.getEmails();
 
-// let sendEmails = (email) => {
+var getEmailAddresses = () => {
 
-  // let transporter = nodemailer.createTransport(
-  //   {
-  //     host: 'smtp.gmail.com',
-  //     port: 465,
-  //     secure: true,
-  //     auth: {
-  //       user: 'rpt05capybaras@gmail.com',
-  //       pass: 'hackreactor'
-  //     }
-  //   },
-  //   {
-  //     from: 'Capybaras <no-reply@capybaras.com>'
-  //   }
-  // );
+  axios.get('http://localhost:3000/api/user')
+  .then (response => {
+    console.log('Retrieved emails');
+    //return response.data[1].emailaddress;
+    let users = response.data;
+    users.forEach( account => sendEmails(account.emailaddress) );
+  })
+  .catch(err => {
+    console.log(err);
+  })
+}
 
-//   let message = {
-//     to: `<${email}>`,
-//     subject: 'Friday Hero Notification',
-//     text: 'You have a new notification!'
-//   };
+let sendEmails = (email) => {
 
-//   transporter.sendMail(message, (error, info) => {
-//     if (error) {
-//       console.log('Error Occurred: ', error.message);
-//       return process.exit(1);
-//     }
+  let transporter = nodemailer.createTransport(
+    {
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
+      auth: {
+        user: 'rpt05capybaras@gmail.com',
+        pass: 'hackreactor'
+      }
+    },
+    {
+      from: 'Capybaras <no-reply@capybaras.com>'
+    }
+  );
 
-//     console.log('Message sent');
-//     console.log(nodemailer.getTestMessageUrl(info));
-//   })
-// }
+  let message = {
+    to: `<${email}>`,
+    subject: 'Friday Hero Notification',
+    text: 'You have a new notification!'
+  };
 
-archive.getEmails();
+  transporter.sendMail(message, (error, info) => {
+    if (error) {
+      console.log('Error Occurred: ', error.message);
+      return process.exit(1);
+    }
 
-//sendEmails('kjakpan@gmail.com')
+    console.log('Message sent');
+    console.log(nodemailer.getTestMessageUrl(info));
+  })
+}
+
+// getEmailAddresses();

@@ -3,10 +3,10 @@ var axios = require('axios');
 const _ = require('underscore');
 var config = require('../config/config');
 
-mongoose.connect('mongodb://127.0.0.1/fridayhero');
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-var User = require('./../database/models/user');
+// mongoose.connect('mongodb://127.0.0.1/fridayhero');
+// mongoose.Promise = global.Promise;
+// var db = mongoose.connection;
+// var User = require('./../database/models/user');
 
 // var getUserAgenda = () => {
 //   axios
@@ -89,7 +89,8 @@ var getEmails = () => {
 
   axios.get('http://localhost:3000/api/user')
   .then (response => {
-    console.log(response);
+    console.log('Retrieved emails ', response.data[1].emailaddress);
+    return response.data[1].emailaddress;
   })
   .catch(err => {
     console.log(err);

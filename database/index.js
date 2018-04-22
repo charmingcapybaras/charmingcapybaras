@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/fridayhero');
 const User = require('./models/user');
 
-console.log('Connected to DB: USE capybaras database');
+console.log('Connected to DB');
 
 // let userSchema = mongoose.Schema({
 //   userID: { type: Number, index: true, unique: true },

@@ -1,4 +1,4 @@
-/* 
+/*
   UserSignup.js
   @author: Daren Lunsford
   @description: Handles the entire user signup process and workflow based on
@@ -71,6 +71,7 @@ class UserSignup extends Component {
       .post('/api/user', {
         firstName: this.state.firstName,
         lastName: this.state.lastName,
+        emailaddress: this.state.email,
         password: this.state.password,
         address: this.state.address,
         city: this.state.city,
