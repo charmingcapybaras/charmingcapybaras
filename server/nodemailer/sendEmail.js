@@ -1,7 +1,7 @@
-const nodemailer = require ('nodemailer');
+const nodemailer = require('nodemailer');
 //const archive = require('../../helpers/email-helper');
 var axios = require('axios');
-// const config = require('../../config/config');
+const config = require('../../config/config');
 var cron = require('cron');
 var CronJob = require('cron').CronJob;
 
@@ -19,29 +19,28 @@ new CronJob(
 //let result = archive.getEmails();
 
 var getEmailAddresses = () => {
+  axios
+    .get('http://localhost:3000/api/user')
+    .then(response => {
+      console.log('Retrieved emails');
+      //return response.data[1].emailaddress;
+      let users = response.data;
+      users.forEach(account => sendEmails(account.emailaddress));
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
 
-  axios.get('http://localhost:3000/api/user')
-  .then (response => {
-    console.log('Retrieved emails');
-    //return response.data[1].emailaddress;
-    let users = response.data;
-    users.forEach( account => sendEmails(account.emailaddress) );
-  })
-  .catch(err => {
-    console.log(err);
-  })
-}
-
-let sendEmails = (email) => {
-
+let sendEmails = email => {
   let transporter = nodemailer.createTransport(
     {
       host: 'smtp.gmail.com',
       port: 465,
       secure: true,
       auth: {
-        user: 'rpt05capybaras@gmail.com',
-        pass: 'hackreactor'
+        user: 'config.email_user',
+        pass: 'config.email_pwd'
       }
     },
     {
@@ -63,7 +62,7 @@ let sendEmails = (email) => {
 
     console.log('Message sent');
     console.log(nodemailer.getTestMessageUrl(info));
-  })
-}
+  });
+};
 
 // getEmailAddresses();

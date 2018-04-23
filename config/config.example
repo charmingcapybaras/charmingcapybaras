@@ -1,0 +1,9 @@
+module.exports = {
+  db_user: '',
+  db_password: '',
+  database: '',
+  mail_user: '',
+  mail_pwd: ',
+  google_places_api: '',
+  google_geocode_api: ''
+};

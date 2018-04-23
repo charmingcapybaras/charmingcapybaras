@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import css from './userAgenda.css';
+
+import UserAgendaSidebar from './UserAgendaSidebar/UserAgendaSidebar';
+import UserAgendaInfo from './UserAgendaInfo/UserAgendaInfo';
+import UserAgendaDetails from './UserAgendaDetails/UserAgendaDetails';
+
 class UserAgenda extends Component {
   constructor(props) {
     super(props);
@@ -22,12 +28,19 @@ class UserAgenda extends Component {
       });
   }
 
+  // <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre>
+
   render() {
     return (
-      <div>
-        <p>UserAgenda</p>
-        <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre>
-      </div>
+      <section class="bg-wrapper">
+        <div className="container box" id="agenda">
+          <div className="row">
+            <UserAgendaSidebar />
+            <UserAgendaInfo />
+            <UserAgendaDetails />
+          </div>
+        </div>
+      </section>
     );
   }
 }

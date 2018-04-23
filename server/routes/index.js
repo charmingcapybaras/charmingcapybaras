@@ -9,14 +9,6 @@ const config = require('../../config/config');
 
 const geocode_api = config.google_geocode_api;
 
-// router.get('/', (req, res, next) => {
-//   res.status(201).send('hello from express');
-// });
-
-// router.get('/api', (req, res, next) => {
-//   res.status(201).send('api endpoint');
-// });
-
 // Get User by id
 router.get(
   '/api/user/:id',
@@ -51,7 +43,6 @@ router.post('/api/user', (req, res) => {
   var state = encodeURI(req.body.state);
   var address = encodeURI(req.body.address);
 
-
   console.log(address, city, state);
 
   axios
@@ -74,7 +65,6 @@ router.post('/api/user', (req, res) => {
       //     user.password = hash;
       //     console.log('this is the hash password >>>>>>>>>', user.password)
       //   });
-
 
       //  save the new user:
       user.save(err => {
