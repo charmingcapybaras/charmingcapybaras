@@ -74,6 +74,7 @@ class UserSignup extends Component {
         emailaddress: this.state.email,
         password: this.state.password,
         address: this.state.address,
+        emailaddress: this.state.email,
         city: this.state.city,
         state: this.state.state,
         zipCode: this.state.zipCode,
