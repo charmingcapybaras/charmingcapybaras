@@ -1,15 +1,18 @@
 import React from 'react';
+import renderHTML from 'react-render-html';
+import Iframe from 'react-iframe';
+
 import Aux from './../../../hoc/Aux/Aux';
 import css from './../userAgenda.css';
 
-import Iframe from 'react-iframe';
-
 const userAgendaDetails = props => {
-  // props.agenda.types.map((type, i) => {
+  // props.vTypes.map((type, i) => {
   //   <span class="badge badge-pill badge-info">{type[i]}</span>;
   // });
 
   // console.log('type of', Object.keys(props.agenda.types));
+
+  const VENUE_URL = `${props.agenda.url}&output=embed`;
 
   return (
     <div className="col-lg-5 col-md-12 col-sm-12 main-content animated fadeIn">
@@ -36,7 +39,8 @@ const userAgendaDetails = props => {
           <h5 className="store-name">{props.agenda.name}</h5>
           <h6 className="store-sub-name" />
           <address className="store-add add-top">
-            {props.agenda.formatted_address}
+            Need address here<br />
+            City, State, Zipcode
           </address>
         </div>
 
@@ -45,7 +49,10 @@ const userAgendaDetails = props => {
             <i className="fas fa-phone" /> {props.agenda.formatted_phone_number}
           </p>
           <p className="website">
-            <i className="fas fa-globe" /> {props.agenda.website}
+            <i className="fas fa-globe" />{' '}
+            <a href={props.agenda.website} target="new">
+              {props.agenda.website}
+            </a>
           </p>
         </div>
       </div>
@@ -53,8 +60,8 @@ const userAgendaDetails = props => {
       <div className="row">
         <div className="col-lg-12 map">
           <Iframe
-            url="https://maps.google.com/maps?q=30.2097673,-95.52655360000001&hl=es;z=14&output=embed&origin=PapaJons"
-            height="330px"
+            url={VENUE_URL}
+            height="360px"
             id="myId"
             className="myClassname"
             display="initial"
@@ -62,21 +69,6 @@ const userAgendaDetails = props => {
             allowFullScreen
           />
         </div>
-
-        {/* <div className="col-lg-4 map">
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-map-marker-alt" /> Location
-          </a>
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-clipboard-check" /> Reserve
-          </a>
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-share-alt" /> Share
-          </a>
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-smile" /> Rate
-          </a>
-        </div> */}
       </div>
     </div>
   );

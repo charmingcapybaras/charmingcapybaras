@@ -4,9 +4,9 @@ import css from './../userAgenda.css';
 
 const userAgendaSidebar = () => {
   const navigation = [
-    { id: 1, linkName: 'agenda', url: '/agenda' },
-    { id: 2, linkName: 'support', url: '/support' },
-    { id: 3, linkName: 'log out', url: '/logout' }
+    { id: 1, linkName: 'agenda', url: '/agenda', class: 'active' },
+    { id: 2, linkName: 'support', url: '/support', class: null },
+    { id: 3, linkName: 'log out', url: '/logout', class: null }
   ];
 
   const subNavigation = [
@@ -25,7 +25,7 @@ const userAgendaSidebar = () => {
       <ul className="nav flex-column margin-help agenda">
         {navigation.map(nav => {
           return (
-            <li className="nav-item">
+            <li className="nav-item" key={nav.id}>
               <a
                 className="nav-link link-bg circle inactive-circle"
                 href={nav.url}
@@ -40,7 +40,7 @@ const userAgendaSidebar = () => {
       <ul className="nav flex-column margin-help agenda">
         {subNavigation.map(nav => {
           return (
-            <li className="nav-item">
+            <li className="nav-item" key={nav.id}>
               <a
                 className="nav-link link-bg circle inactive-circle"
                 href={nav.url}

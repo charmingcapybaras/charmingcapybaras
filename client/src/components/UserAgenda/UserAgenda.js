@@ -13,7 +13,8 @@ class UserAgenda extends Component {
     this.state = {
       id: '5adb9606d039468db8696660', //  5adb9571a7284d8d6efa12f5
       profile: [],
-      agenda: []
+      agenda: [],
+      data: null
     };
   }
 
@@ -28,7 +29,9 @@ class UserAgenda extends Component {
         //   });
         // });
         this.setState({ agenda: response.data.agenda[0] });
+
         this.setState({ profile: response.data });
+        this.setState({ data: response.data });
         let transformedIngredients = Object.keys(response.data.agenda[0]).map(
           igKey => {
             return [...Array(response.data.agenda[0][igKey])].map((_, i) => {
@@ -45,6 +48,8 @@ class UserAgenda extends Component {
   render() {
     console.log('profile', this.state.profile);
     console.log('agenda ', this.state.agenda);
+    console.log('types', this.state.agenda.types);
+    let venueTypes = this.state.agenda.types;
     return (
       <section className="bg-wrapper">
         {/* <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre> */}
@@ -52,7 +57,7 @@ class UserAgenda extends Component {
           <div className="row">
             <UserAgendaSidebar />
             <UserAgendaInfo profile={this.state.profile} />
-            <UserAgendaDetails agenda={this.state.agenda} />
+            <UserAgendaDetails vTypes={venueTypes} agenda={this.state.agenda} />
           </div>
         </div>
       </section>
