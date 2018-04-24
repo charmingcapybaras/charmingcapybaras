@@ -1,7 +1,16 @@
 import React from 'react';
 import Aux from './../../../hoc/Aux/Aux';
 import css from './../userAgenda.css';
-const userAgendaDetails = () => {
+
+import Iframe from 'react-iframe';
+
+const userAgendaDetails = props => {
+  // props.agenda.types.map((type, i) => {
+  //   <span class="badge badge-pill badge-info">{type[i]}</span>;
+  // });
+
+  // console.log('type of', Object.keys(props.agenda.types));
+
   return (
     <div className="col-lg-5 col-md-12 col-sm-12 main-content animated fadeIn">
       <h2 className="con-text">
@@ -24,27 +33,37 @@ const userAgendaDetails = () => {
 
       <div className="row">
         <div className="col-lg-7  store-info">
-          <h5 className="store-name">Last Concert Cafe</h5>
-          <h6 className="store-sub-name">Tex-Mex</h6>
-
-          <h6 className="store-add add-top"> 129 South Warehouse</h6>
-          <h6 className="store-add"> The Woodlands, Texas 77382</h6>
+          <h5 className="store-name">{props.agenda.name}</h5>
+          <h6 className="store-sub-name" />
+          <address className="store-add add-top">
+            {props.agenda.formatted_address}
+          </address>
         </div>
 
         <div className="col-lg-5">
           <p className="phone">
-            <i className="fas fa-phone" /> 832-679-0998
+            <i className="fas fa-phone" /> {props.agenda.formatted_phone_number}
           </p>
           <p className="website">
-            <i className="fas fa-globe" /> www.lastconcertcafe.com
+            <i className="fas fa-globe" /> {props.agenda.website}
           </p>
         </div>
       </div>
 
       <div className="row">
-        <div className="col-lg-8 map" />
+        <div className="col-lg-12 map">
+          <Iframe
+            url="https://maps.google.com/maps?q=30.2097673,-95.52655360000001&hl=es;z=14&output=embed&origin=PapaJons"
+            height="330px"
+            id="myId"
+            className="myClassname"
+            display="initial"
+            position="relative"
+            allowFullScreen
+          />
+        </div>
 
-        <div className="col-lg-4 map">
+        {/* <div className="col-lg-4 map">
           <a className="link-box back-btn" href="#">
             <i className="fas fa-map-marker-alt" /> Location
           </a>
@@ -57,7 +76,7 @@ const userAgendaDetails = () => {
           <a className="link-box back-btn" href="#">
             <i className="fas fa-smile" /> Rate
           </a>
-        </div>
+        </div> */}
       </div>
     </div>
   );

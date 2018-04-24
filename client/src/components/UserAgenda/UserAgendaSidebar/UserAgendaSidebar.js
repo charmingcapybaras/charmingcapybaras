@@ -3,58 +3,53 @@ import Aux from './../../../hoc/Aux/Aux';
 import css from './../userAgenda.css';
 
 const userAgendaSidebar = () => {
+  const navigation = [
+    { id: 1, linkName: 'agenda', url: '/agenda' },
+    { id: 2, linkName: 'support', url: '/support' },
+    { id: 3, linkName: 'log out', url: '/logout' }
+  ];
+
+  const subNavigation = [
+    { id: 4, linkName: 'contact', url: '/contact' },
+    { id: 5, linkName: 'about', url: '/about' },
+    { id: 6, linkName: 'privacy policy', url: '/privacy' },
+    { id: 7, linkName: 'cookies', url: '/cookies' },
+    { id: 8, linkName: 'adverstising', url: '/advertising' }
+  ];
   return (
     <div className="col-lg-3 col-md-12 col-sm-12 navigation animated fadeIn">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         Friday Hero
       </a>
 
       <ul className="nav flex-column margin-help agenda">
-        <li className="nav-item-agenda">
-          <a className="nav-link link-bg circle active-circle" href="#">
-            My account
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            Support
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            Sign out
-          </a>
-        </li>
+        {navigation.map(nav => {
+          return (
+            <li className="nav-item">
+              <a
+                className="nav-link link-bg circle inactive-circle"
+                href={nav.url}
+              >
+                {nav.linkName}
+              </a>
+            </li>
+          );
+        })}
       </ul>
 
-      <ul className="nav flex-column margin-help">
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            Contact
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            About
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            Privacy Policy
-          </a>
-        </li>
-
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            Cookies
-          </a>
-        </li>
-
-        <li className="nav-item">
-          <a className="nav-link link-bg circle inactive-circle" href="#">
-            Advertising
-          </a>
-        </li>
+      <ul className="nav flex-column margin-help agenda">
+        {subNavigation.map(nav => {
+          return (
+            <li className="nav-item">
+              <a
+                className="nav-link link-bg circle inactive-circle"
+                href={nav.url}
+              >
+                {nav.linkName}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

@@ -73,6 +73,7 @@ body::-webkit-scrollbar {
   color: #fff;
   margin: 5px 0px;
   list-style: none;
+  text-transform: capitalize;
 }
 
 .lead-txt{
@@ -322,7 +323,7 @@ h6.store-sub-name{
   margin-top: 15px !important;
 }
 
-h6.store-add{
+address {
   font-size: 0.8em;
   font-weight: 300;
   color: #727272;
