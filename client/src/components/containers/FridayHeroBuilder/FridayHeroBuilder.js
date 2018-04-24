@@ -43,6 +43,7 @@ class FridayHeroBuilder extends Component {
             render={props => <HomePage navigation={this.state.navigation} />}
           />
           <Route exact path="/user" component={UserSignup} />
+          <Route exact path="/daren" component={UserSignup} />
           <Route
             exact
             path="/agenda"

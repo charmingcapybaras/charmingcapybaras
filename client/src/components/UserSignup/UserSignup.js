@@ -45,8 +45,23 @@ class UserSignup extends Component {
   }
 
   formAdvanceHandler() {
-    this.setState({ step: +this.state.step + 1 });
-    console.log(this.state.step);
+    console.log('what is the step ', this.state.step);
+    if (this.state.step === 0) {
+      axios
+        .post('/authenticate/signup', {
+          password: this.state.password,
+          emailaddress: this.state.email
+        })
+        .then(response => {
+          console.log('check if they are a user ', response);
+          this.setState({ step: +this.state.step + 1 });
+        })
+        .catch(err => {
+          console.log('problem with checking user account creation', err);
+        });
+    }
+    // this.setState({ step: +this.state.step + 1 });
+    // console.log(this.state.step);
   }
 
   formBackHandler() {

@@ -6,8 +6,13 @@ const axios = require('axios');
 const User = require('../../database/models/user');
 var bcrypt = require('bcrypt');
 const config = require('../../config/config');
+const util = require('../../helpers/user-status');
 
 const geocode_api = config.google_geocode_api;
+
+// router.get('/agenda', util.checkUser, function(req, res) {
+//   console.log('session', request.session, 'sessionId', request.sessionID);
+// });
 
 // Get User by id
 router.get(
