@@ -9,6 +9,10 @@ import HomePage from '../../HomePage/HomePage';
 import Navigation from '../../Navigation/Navigation';
 import UserAgenda from '../../UserAgenda/UserAgenda';
 import Footer from '../../Footer/Footer';
+import About from '../../About/About';
+import Contact from '../../Contact/Contact';
+import Advertise from '../../Advertise/Advertise';
+
 
 class FridayHeroBuilder extends Component {
   constructor(props) {
@@ -45,6 +49,21 @@ class FridayHeroBuilder extends Component {
             render={props => (
               <UserAgenda authenticated={this.state.authenticated} />
             )}
+          />
+          <Route
+            exact
+            path="/about"
+            render={props => <About navigation={this.state.navigation} />}
+          />
+          <Route
+            exact
+            path="/contact"
+            render={props => <Contact navigation={this.state.navigation} />}
+          />
+          <Route
+            exact
+            path="/advertise"
+            render={props => <Advertise navigation={this.state.navigation} />}
           />
           {/* <Footer /> */}
         </div>
