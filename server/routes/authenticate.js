@@ -57,8 +57,12 @@ router.post('/signup', (req, res) => {
             //TODO: create session helper function
             // console.log('new user');
             console.log('found ', newUser);
-            util.newSession(req, res, found);
-            res.status(200).send();
+            // util.newSession(req, res, found);
+            // res.status(200).send();
+            next();
+          })
+          .catch(err => {
+            console.log('error in saving new user ', err);
           });
       });
       //alert('User already exists');

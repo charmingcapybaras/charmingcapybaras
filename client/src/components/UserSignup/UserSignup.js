@@ -12,7 +12,6 @@ import axios from 'axios';
 import Input from './../../ui/Input/Input';
 import css from './userSignup.css';
 import Aux from './../../hoc/Aux/Aux';
-import Sidebar from './Sidebar/Sidebar';
 import ProfileSidebar from './ProfileSidebar/ProfileSidebar';
 
 // form configuration
@@ -47,6 +46,7 @@ class UserSignup extends Component {
   formAdvanceHandler() {
     console.log('what is the step ', this.state.step);
     if (this.state.step === 0) {
+      console.log('email', this.state.email, 'pwd', this.state.password);
       axios
         .post('/authenticate/signup', {
           password: this.state.password,

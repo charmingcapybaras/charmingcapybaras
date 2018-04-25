@@ -8,6 +8,7 @@ import UserSignup from '../../UserSignup/UserSignup';
 import HomePage from '../../HomePage/HomePage';
 import Navigation from '../../Navigation/Navigation';
 import UserAgenda from '../../UserAgenda/UserAgenda';
+import UserLogin from './../../UserLogin/UserLogin';
 import Footer from '../../Footer/Footer';
 import About from '../../About/About';
 import Contact from '../../Contact/Contact';
@@ -35,8 +36,7 @@ class FridayHeroBuilder extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div>
-          {/* <Navigation /> */}
+        <Switch>
           <Route
             exact
             path="/"
@@ -44,6 +44,7 @@ class FridayHeroBuilder extends Component {
           />
           <Route exact path="/user" component={UserSignup} />
           <Route exact path="/daren" component={UserSignup} />
+          <Route exact path="/login" component={UserLogin} />
           <Route
             exact
             path="/agenda"
