@@ -84,7 +84,7 @@ class FridayHeroBuilder extends Component {
               />
             )}
           />
-          <Route exact path="/user" component={UserSignup} />
+          <Route exact path="/signup" component={UserSignup} />
           <Route exact path="/daren" component={UserSignup} />
           <Route exact path="/login" component={UserLogin} />
           <Route

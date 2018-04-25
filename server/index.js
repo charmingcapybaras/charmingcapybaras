@@ -29,7 +29,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // serve static files from ../client/dist
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// new route for login method.
+var api = require('./routes/index');
+app.use('/api', api);
 
 var community = require('./routes/loggedin');
 app.use('/community', community);

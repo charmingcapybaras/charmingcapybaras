@@ -16,9 +16,6 @@ router.use(
     cookie: { secure: false }
   })
 );
-
-// app.use(express.static(__dirname + '/public'));
-
 var userSchema = new mongoose.Schema({
   username: { type: String },
   email: { type: String, required: true, unique: true },
@@ -26,23 +23,6 @@ var userSchema = new mongoose.Schema({
   resetPasswordToken: String,
   resetPasswordExpires: Date
 });
-
-// userSchema.pre('save', function(next) {
-//   var user = this;
-//   var SALT_FACTOR = 5;
-
-//   if (!user.isModified('password')) return next();
-
-//   bcrypt.genSalt(SALT_FACTOR, function(err, salt) {
-//     if (err) return next(err);
-
-//     bcrypt.hash(user.password, salt, null, function(err, hash) {
-//       if (err) return next(err);
-//       user.password = hash;
-//       next();
-//     });
-//   });
-// });
 
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
@@ -100,9 +80,6 @@ router.post('/signup', function(req, res) {
   var email = req.body.email;
   var password = req.body.password;
   console.log('req.body.email', email);
-
-  //new User().signup();
-
   new User({
     email: email
   });
@@ -117,17 +94,20 @@ router.post('/signup', function(req, res) {
             //TODO: create session helper function
             console.log('==> ', found);
             util.newSession(req, res, found);
-            return res.redirect(301, '/');
+            //return res.redirect(301, '/');
+            res.status(202).json({ id: found._id });
           })
           .catch(err => {
             console.log('error! ', err);
+            //var notify = { notify: 'user already exists' };
+            res.status(500).json({ alert: 'error' });
           });
       });
     } else {
       //if not found
       //TODO: create
       console.log('User already exists');
-      return res.redirect(301, '/login');
+      res.status(200).json({ alert: 'User already exists' });
     }
   });
 });

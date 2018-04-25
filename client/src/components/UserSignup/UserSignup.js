@@ -22,12 +22,12 @@ class UserSignup extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      _id: null,
       step: 0,
+      _id: '',
       firstName: '',
       lastName: '',
-      username: '',
-      email: '',
+      username: '', // used for initial creation
+      email: '', // used for initial creation
       address: '',
       city: '',
       state: '',
@@ -44,35 +44,29 @@ class UserSignup extends Component {
     this.formBackHandler = this.formBackHandler.bind(this);
   }
 
-  componentWillMount() {
-    // util.checkUser();
-    this.setState({ _id: localStorage._fhID });
-  }
-
   formAdvanceHandler() {
-    console.log('what is the step ', this.state.step);
     if (this.state.step === 0) {
-      console.log('email', this.state.email, 'pwd', this.state.password);
       axios
-        .post('/authenticate/signup', {
+        .post('/community/signup', {
           password: this.state.password,
-          emailaddress: this.state.email
+          email: this.state.email
         })
         .then(response => {
-          console.log('check if they are a user ', response);
-          this.setState({ step: +this.state.step + 1 });
+          console.log('check if they are a user!! ', response);
+          localStorage.setItem('_fhID', response.data.id);
+          this.setState({ _id: response.data.id });
+          //this.setState({ step: +this.state.step + 1 });
         })
         .catch(err => {
           console.log('problem with checking user account creation', err);
         });
     }
-    // this.setState({ step: +this.state.step + 1 });
+    this.setState({ step: +this.state.step + 1 });
     // console.log(this.state.step);
   }
 
   formBackHandler() {
     this.setState({ step: +this.state.step - 1 });
-    console.log(this.state.step);
   }
 
   inputChangedHandler(event) {
@@ -89,19 +83,14 @@ class UserSignup extends Component {
     event.preventDefault();
     console.log('submitHandler');
     axios
-      .post('/api/user', {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        emailaddress: this.state.email,
-        password: this.state.password,
+      .post('/api/agenda', {
+        user_id: this.state._id,
         address: this.state.address,
-        emailaddress: this.state.email,
         city: this.state.city,
         state: this.state.state,
-        zipCode: this.state.zipCode,
+        zip_code: this.state.zipCode,
         price_level: this.state.price_level,
         rating: this.state.rating,
-        gender: this.state.gender,
         status: this.state.status
       })
       .then(response => {

@@ -77,7 +77,7 @@ const registration = [
           },
           valid: false
         },
-        zipCode: {
+        zip_code: {
           elementType: 'input',
           elementConfig: {
             type: 'text',
@@ -98,32 +98,32 @@ const registration = [
     instruction: 'Basic Info',
     form: [
       {
-        firstName: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'First Name',
-            label: 'First Name'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        lastName: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'Last Name',
-            label: 'Last Name'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
+        // firstName: {
+        //   elementType: 'input',
+        //   elementConfig: {
+        //     type: 'text',
+        //     placeholder: 'First Name',
+        //     label: 'First Name'
+        //   },
+        //   value: '',
+        //   validation: {
+        //     required: true
+        //   },
+        //   valid: false
+        // },
+        // lastName: {
+        //   elementType: 'input',
+        //   elementConfig: {
+        //     type: 'text',
+        //     placeholder: 'Last Name',
+        //     label: 'Last Name'
+        //   },
+        //   value: '',
+        //   validation: {
+        //     required: true
+        //   },
+        //   valid: false
+        // },
         price_level: {
           elementType: 'number',
           elementConfig: {
