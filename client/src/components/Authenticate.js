@@ -1,28 +1,13 @@
-import React, {Component} from React;
-import request from 'request';
-
-class Authenticate extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-
-    }
+exports.loggedIn = () => {
+  if (localStorage._fhID) {
+    return true;
   }
+  return false;
+};
 
-  isLoggedIn(request, response, next) {
-    if (!request.session.user) {
-      console.log('checkUser!!! ', request.session.user);
-      // response.redirect(301, '/');
-    } else {
-      console.log('checkUser!!!!!! ', request.session.user);
-      next();
-    }
-  };
-
-  render() {
-
-  return (<div><h1>Authenticate</h1></div>)
+exports.requireAuth = (nextState, replace) => {
+  if (!this.loggedIn()) {
+    return true;
   }
-}
-
-export default Authenticate;
+  return false;
+};

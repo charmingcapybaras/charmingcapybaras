@@ -11,6 +11,7 @@ class UserAgenda extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      _id: null,
       id: '5adb9606d039468db8696660', //  5adb9571a7284d8d6efa12f5
       profile: [],
       agenda: [],
@@ -19,6 +20,9 @@ class UserAgenda extends Component {
   }
 
   componentDidMount() {
+    // util.checkUser();
+    this.setState({ _id: localStorage._fhID });
+
     axios
       .get(`/api/user/${this.state.id}`)
       .then(response => {
@@ -47,6 +51,7 @@ class UserAgenda extends Component {
 
   render() {
     console.log('profile', this.state.profile);
+    console.log('current login id ', this.state._id);
     console.log('agenda ', this.state.agenda);
     console.log('types', this.state.agenda.types);
     let venueTypes = this.state.agenda.types;

@@ -17,6 +17,7 @@ exports.newSession = function(request, response, user) {
   return request.session.regenerate(function() {
     request.session.cookie.user = true;
     request.session.cookie._id = user._id;
+
     console.log('new session started ', request.session);
     request.session.user = true;
     return;

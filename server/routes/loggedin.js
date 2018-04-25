@@ -79,7 +79,8 @@ router.post('/login', function(req, res) {
           //set up a session
           util.newSession(req, res, found);
           console.log('go@');
-          var redir = { redirect: '/agenda' };
+          console.log('found', found);
+          var redir = { redirect: '/agenda', _user: found._id };
           return res.json(redir);
           // return res.redirect('/agenda');
         } else {

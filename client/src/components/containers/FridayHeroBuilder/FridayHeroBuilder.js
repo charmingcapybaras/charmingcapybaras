@@ -1,6 +1,18 @@
+/*
+  @authors: 
+  @description:
+*/
+
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Route, NavLink, Link, Switch } from 'react-router-dom';
+import {
+  BrowserRouter,
+  Route,
+  NavLink,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom';
 
 // local imports
 
@@ -22,35 +34,79 @@ class FridayHeroBuilder extends Component {
       navigation: [
         { id: 1, name: 'About', url: '/about', attr: 'nav-link ' },
         { id: 2, name: 'Contact', url: '/contact', attr: 'nav-link ' },
-        { id: 3, name: 'Advertise', url: '/advertise', attr: 'nav-link ' },
-        { id: 4, name: 'Login', url: '/login', attr: 'nav-link login' }
+        { id: 3, name: 'Advertise', url: '/advertise', attr: 'nav-link ' }
       ],
-      authenticated: {
-        loggedin: true,
-        username: 'daren',
-        _id: '5adabfd1f2bfe77049b70489'
-      }
+      auth: false
     };
+
+    this.loggedIn = this.loggedIn.bind(this);
+    this.requireAuth = this.requireAuth.bind(this);
+    this.userLogout = this.userLogout.bind(this);
+  }
+
+  loggedIn() {
+    if (localStorage._fhID) {
+      return true;
+    }
+    return false;
+  }
+
+  requireAuth(nextState, replace) {
+    if (!this.loggedIn()) {
+      return true;
+    }
+    return false;
+  }
+
+  userLogout() {
+    localStorage.removeItem('_fhID');
+  }
+
+  componentDidMount() {
+    if (this.loggedIn()) {
+      console.log('true logged in');
+      this.setState({ auth: true });
+    }
   }
 
   render() {
+    console.log('this.state.auth', this.state.auth);
     return (
       <BrowserRouter>
         <Switch>
           <Route
             exact
             path="/"
-            render={props => <HomePage navigation={this.state.navigation} />}
+            render={props => (
+              <HomePage
+                navigation={this.state.navigation}
+                auth={this.state.auth}
+              />
+            )}
           />
           <Route exact path="/user" component={UserSignup} />
           <Route exact path="/daren" component={UserSignup} />
           <Route exact path="/login" component={UserLogin} />
           <Route
             exact
+            path="/logout"
+            render={() =>
+              this.userLogout() ? (
+                <Redirect to="/" />
+              ) : (
+                <HomePage
+                  navigation={this.state.navigation}
+                  auth={this.state.auth}
+                />
+              )
+            }
+          />
+          <Route
+            exact
             path="/agenda"
-            render={props => (
-              <UserAgenda authenticated={this.state.authenticated} />
-            )}
+            render={() =>
+              this.requireAuth() ? <Redirect to="/login" /> : <UserAgenda />
+            }
           />
           <Route
             exact

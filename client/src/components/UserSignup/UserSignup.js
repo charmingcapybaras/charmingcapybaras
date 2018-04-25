@@ -22,6 +22,7 @@ class UserSignup extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      _id: null,
       step: 0,
       firstName: '',
       lastName: '',
@@ -41,6 +42,11 @@ class UserSignup extends Component {
     this.inputChangedHandler = this.inputChangedHandler.bind(this);
     this.submitHandler = this.submitHandler.bind(this);
     this.formBackHandler = this.formBackHandler.bind(this);
+  }
+
+  componentWillMount() {
+    // util.checkUser();
+    this.setState({ _id: localStorage._fhID });
   }
 
   formAdvanceHandler() {

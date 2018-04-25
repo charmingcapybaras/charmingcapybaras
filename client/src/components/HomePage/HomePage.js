@@ -11,7 +11,7 @@ const HomePage = props => {
     <Aux>
       <header className="bg-wrapper">
         <div className="container">
-          <Navigation topNav={props.navigation} />
+          <Navigation topNav={props.navigation} auth={props.auth} />
         </div>
         <Jumbotron />
       </header>

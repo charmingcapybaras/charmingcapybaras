@@ -12,15 +12,20 @@ class UserLogin extends Component {
       email: 'happ2y@home.com',
       password: 'happy2',
       username: 'Daren2'
+      // email: '',
+      // password: '',
+      // username: ''
     };
+
+    // email: 'happ2y@home.com',
+    // password: 'happy2',
+    // username: 'Daren2'
 
     this.onChangeHandler = this.onChangeHandler.bind(this);
     this.onSubmitHandler = this.onSubmitHandler.bind(this);
   }
 
-  componentDidMount() {
-    // util.checkUser();
-  }
+  componentWillMount() {}
 
   onChangeHandler(event) {
     console.log(event.target.name, event.target.value);
@@ -38,8 +43,14 @@ class UserLogin extends Component {
         username: this.state.username
       })
       .then(res => {
-        console.log('response from database ', res.data.redirect);
+        console.log(
+          'response from database ',
+          res.data.redirect,
+          'data ',
+          res.data
+        );
         if (res.data.redirect === '/agenda') {
+          localStorage.setItem('_fhID', res.data._user);
           window.location = '/agenda';
         } else if (res.data.redirect === '/login') {
           window.location = '/';
@@ -60,30 +71,11 @@ class UserLogin extends Component {
             <Sidebar />
             <div className="col-lg-7 col-md-12 col-sm-12 content animated fadeIn">
               <h2 className="lead-txt">
-                It's easy to start being a Friday Hero create your account
-                today!
+                Welcome back, you're just one step away from Friday's plans.
               </h2>
 
               <form className="fh-form">
                 <div className="container">
-                  <div className="form-group">
-                    <div className="row">
-                      <div className="col-md-12 col-sm-12">
-                        <label htmlFor="fh-email">User Name:</label>
-                        <input
-                          onChange={this.onChangeHandler}
-                          value={this.state.username}
-                          type="fh-input"
-                          className="form-control"
-                          id="fh-input"
-                          name="username"
-                          aria-describedby="usernameHelp"
-                          placeholder="User Name"
-                        />
-                      </div>
-                    </div>
-                  </div>
-
                   <div className="form-group">
                     <div className="row">
                       <div className="col-md-12 col-sm-12">
@@ -122,9 +114,9 @@ class UserLogin extends Component {
                   <div className="row">
                     <div className="col-md-6 col-sm-12">
                       <p className="check-if-login">
-                        Already a member?{' '}
+                        Want to be a hero?{' '}
                         <a href="#" className="underline">
-                          Log-in
+                          Start today
                         </a>
                       </p>
                     </div>
@@ -134,7 +126,7 @@ class UserLogin extends Component {
                         type="button"
                         className="btn btn-primary sign-btn"
                       >
-                        Sign Up
+                        Log in
                       </button>
                     </div>
                   </div>
