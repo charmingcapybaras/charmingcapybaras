@@ -66,6 +66,17 @@ router.post('/api/user', (req, res) => {
       //     console.log('this is the hash password >>>>>>>>>', user.password)
       //   });
 
+      // console.log('here is the user password... >>>>>>>>>', req.body.password)
+
+      //   bcrypt.hash(req.body.password, 10, function(err, hash){
+      //     if(err){
+      //       console.log(err);
+      //     }
+
+      //     user.password = hash;
+      //     console.log('this is the hash password >>>>>>>>>', user.password)
+      //   });
+
       //  save the new user:
       user.save(err => {
         if (err) {
