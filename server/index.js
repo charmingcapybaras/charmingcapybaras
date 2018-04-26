@@ -8,7 +8,7 @@ var util = require('./../helpers/user-status');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 require('dotenv').config();
-// const worker = require('../workers/agenda-helper'); // chron job
+const worker = require('../workers/agenda-helper'); // chron job
 
 // call express
 const app = express();
@@ -30,7 +30,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 var api = require('./routes/index');
-app.use('/api', api);
+app.use('/agendas', api);
+
+var users = require('./routes/user');
+app.use('/api', users);
 
 var community = require('./routes/loggedin');
 app.use('/community', community);

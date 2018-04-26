@@ -9,7 +9,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
 var async = require('async');
-var util = require('../../helpers/user-status');
+
 passport.use(
   new LocalStrategy(function(username, password, done) {
     User.findOne({ username: username }, function(err, user) {
@@ -151,5 +151,4 @@ router.get('/login', function(req, res) {
     user: req.user
   });
 });
-
 module.exports = router;

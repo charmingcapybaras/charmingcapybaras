@@ -12,21 +12,25 @@ class UserAgenda extends Component {
     super(props);
     this.state = {
       _id: null,
-      id: '5adb9606d039468db8696660', //  5adb9571a7284d8d6efa12f5
+      id: '', //  5adb9571a7284d8d6efa12f5
       profile: [],
       agenda: [],
-      data: null
+      data: null,
+      agendaLoaded: false
     };
   }
 
   componentDidMount() {
     // util.checkUser();
     this.setState({ _id: localStorage._fhID });
+    var userID = localStorage._fhID;
 
+    console.log('==================== agenda ========================');
     axios
-      .get(`/api/user/${this.state.id}`)
+      .get(`/agenda/${userID}`)
       .then(response => {
-        // console.log(response.data);
+        console.log('worked ', response);
+        console.log(response.data);
         // Object.keys(response.data).map(profileKey => {
         //   this.setState({
         //     [profileKey]: response.data[profileKey]
@@ -34,7 +38,7 @@ class UserAgenda extends Component {
         // });
         this.setState({ agenda: response.data.agenda[0] });
 
-        this.setState({ profile: response.data });
+        this.setState({ profile: response });
         this.setState({ data: response.data });
         let transformedIngredients = Object.keys(response.data.agenda[0]).map(
           igKey => {
@@ -47,22 +51,22 @@ class UserAgenda extends Component {
       .catch(error => {
         console.log('get user error ');
       });
+
+    this.setState({ agendaLoaded: true });
   }
 
   render() {
-    console.log('profile', this.state.profile);
+    console.log('data', this.state.data);
     console.log('current login id ', this.state._id);
     console.log('agenda ', this.state.agenda);
-    console.log('types', this.state.agenda.types);
-    let venueTypes = this.state.agenda.types;
     return (
       <section className="bg-wrapper">
         {/* <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre> */}
         <div className="container box" id="agenda">
           <div className="row">
             <UserAgendaSidebar />
-            <UserAgendaInfo profile={this.state.profile} />
-            <UserAgendaDetails vTypes={venueTypes} agenda={this.state.agenda} />
+            <UserAgendaInfo profileID={this.state._id} />
+            <UserAgendaDetails agendaID={this.state._id} />
           </div>
         </div>
       </section>

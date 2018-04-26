@@ -2,10 +2,11 @@ import React from 'react';
 import Aux from './../../../hoc/Aux/Aux';
 
 const userAgendaInfo = props => {
+  console.log(props.profileID);
   return (
     <div className="col-lg-4 col-md-12 col-sm-12 side-content animated fadeIn">
       <h2 className="gen-text">
-        <span className="pink">{props.profile.firstName}</span> you're a hero!
+        <span className="pink" /> you're a hero!
       </h2>
       <h3 className="border-text">
         PUT YOUR CAPE ON AND TAKE OFF <span className="fly" />

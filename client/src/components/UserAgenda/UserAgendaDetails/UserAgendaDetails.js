@@ -12,7 +12,7 @@ const userAgendaDetails = props => {
 
   // console.log('type of', Object.keys(props.agenda.types));
 
-  const VENUE_URL = `${props.agenda.url}&output=embed`;
+  // const VENUE_URL = `${props.agenda.url}&output=embed`;
 
   return (
     <div className="col-lg-5 col-md-12 col-sm-12 main-content animated fadeIn">
@@ -36,7 +36,7 @@ const userAgendaDetails = props => {
 
       <div className="row">
         <div className="col-lg-7  store-info">
-          <h5 className="store-name">{props.agenda.name}</h5>
+          {/* <h5 className="store-name">{props.agenda.name}</h5> */}
           <h6 className="store-sub-name" />
           <address className="store-add add-top">
             Need address here<br />
@@ -46,20 +46,20 @@ const userAgendaDetails = props => {
 
         <div className="col-lg-5">
           <p className="phone">
-            <i className="fas fa-phone" /> {props.agenda.formatted_phone_number}
+            {/* <i className="fas fa-phone" /> {props.agenda.formatted_phone_number} */}
           </p>
           <p className="website">
             <i className="fas fa-globe" />{' '}
-            <a href={props.agenda.website} target="new">
+            {/* <a href={props.agenda.website} target="new">
               {props.agenda.website}
-            </a>
+            </a> */}
           </p>
         </div>
       </div>
 
       <div className="row">
         <div className="col-lg-12 map">
-          <Iframe
+          {/* <Iframe
             url={VENUE_URL}
             height="360px"
             id="myId"
@@ -67,7 +67,7 @@ const userAgendaDetails = props => {
             display="initial"
             position="relative"
             allowFullScreen
-          />
+          /> */}
         </div>
       </div>
     </div>

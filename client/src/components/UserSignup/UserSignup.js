@@ -83,7 +83,7 @@ class UserSignup extends Component {
     event.preventDefault();
     console.log('submitHandler');
     axios
-      .post('/api/agenda', {
+      .post('/agenda/add', {
         user_id: this.state._id,
         address: this.state.address,
         city: this.state.city,

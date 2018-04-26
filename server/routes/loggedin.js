@@ -5,7 +5,7 @@ var bcrypt = require('bcrypt-nodejs');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var util = require('./../../helpers/user-status');
-
+var User = require('./../../database/models/user');
 var router = express();
 
 router.use(
@@ -16,24 +16,24 @@ router.use(
     cookie: { secure: false }
   })
 );
-var userSchema = new mongoose.Schema({
-  username: { type: String },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
-});
+// var userSchema = new mongoose.Schema({
+//   username: { type: String },
+//   email: { type: String, required: true, unique: true },
+//   password: { type: String, required: true },
+//   resetPasswordToken: String,
+//   resetPasswordExpires: Date
+// });
 
-userSchema.methods.comparePassword = function(candidatePassword, cb) {
-  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-    if (err) return cb(err);
-    cb(null, isMatch);
-  });
-};
+// userSchema.methods.comparePassword = function(candidatePassword, cb) {
+//   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+//     if (err) return cb(err);
+//     cb(null, isMatch);
+//   });
+// };
 
-var User = mongoose.model('User', userSchema);
+// var User = mongoose.model('User', userSchema);
 
-mongoose.connect('mongodb://localhost/fridayhero');
+// mongoose.connect('mongodb://localhost/fridayhero');
 
 router.post('/login', function(req, res) {
   console.log('post to /login');
