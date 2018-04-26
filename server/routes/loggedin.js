@@ -2,6 +2,7 @@ var express = require('express');
 
 // added items
 var bcrypt = require('bcrypt-nodejs');
+var crypto = require('crypto');
 var session = require('express-session');
 var mongoose = require('mongoose');
 var util = require('./../../helpers/user-status');
