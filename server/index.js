@@ -12,7 +12,7 @@ const worker = require('../workers/agenda-helper'); // chron job
 
 // call express
 const app = express();
-// session
+session;
 app.use(
   session({
     secret: 'keyboard cat',
@@ -29,14 +29,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // serve static files from ../client/dist
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-var api = require('./routes/index');
-app.use('/agendas', api);
-
 var users = require('./routes/user');
 app.use('/api', users);
 
 var community = require('./routes/loggedin');
 app.use('/community', community);
+
+var api = require('./routes/index');
+app.use('/agendas', api);
 
 app.get('*', util.checkUser, function(request, response) {
   response.sendFile(path.resolve(__dirname, '../client/dist', 'index.html'));

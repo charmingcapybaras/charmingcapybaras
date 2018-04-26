@@ -47,7 +47,7 @@ var getUserAgenda = () => {
                 );
               });
               console.log('===============================');
-              console.log('venue ', venue);
+              // console.log('venue ', venue);
               console.log('===============================');
 
               // get the detail of specific venue
@@ -60,6 +60,7 @@ var getUserAgenda = () => {
                 .then(response => {
                   console.log('in the details response', venue[0].place_id);
                   let venueDetails = response.data.result;
+                  venueDetails.date = new Date();
                   // console.log('venueDetails ', response.data.result);
                   // return venueDetails;
 

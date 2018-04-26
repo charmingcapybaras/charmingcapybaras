@@ -83,7 +83,7 @@ class UserSignup extends Component {
     event.preventDefault();
     console.log('submitHandler');
     axios
-      .post('/agenda/add', {
+      .post('/agendas/add', {
         user_id: this.state._id,
         address: this.state.address,
         city: this.state.city,
@@ -110,7 +110,11 @@ class UserSignup extends Component {
     } else {
       console.log('submit this thing');
     }
-    let form = <p>Thank you</p>;
+    let form = (
+      <Aux>
+        <h2>Thank you, now go be a hero!</h2>
+      </Aux>
+    );
 
     if (this.state.step <= registration.length - 1) {
       const formElementsArray = [];

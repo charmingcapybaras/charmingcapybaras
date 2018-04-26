@@ -13,7 +13,6 @@ const userAgendaSidebar = () => {
     { id: 4, linkName: 'contact', url: '/contact' },
     { id: 5, linkName: 'about', url: '/about' },
     { id: 6, linkName: 'privacy policy', url: '/privacy' },
-    { id: 7, linkName: 'cookies', url: '/cookies' },
     { id: 8, linkName: 'adverstising', url: '/advertising' }
   ];
   return (

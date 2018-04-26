@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import renderHTML from 'react-render-html';
 import css from './userAgenda.css';
 
 import UserAgendaSidebar from './UserAgendaSidebar/UserAgendaSidebar';
@@ -16,8 +16,13 @@ class UserAgenda extends Component {
       profile: [],
       agenda: [],
       data: null,
+      lat: '',
+      lng: '',
+      weatherSummary: '',
+      weatherIcon: '',
       agendaLoaded: false
     };
+    this.agendaDate = this.agendaDate.bind(this);
   }
 
   componentDidMount() {
@@ -27,26 +32,13 @@ class UserAgenda extends Component {
 
     console.log('==================== agenda ========================');
     axios
-      .get(`/agenda/${userID}`)
+      .get(`/agendas/${userID}`)
       .then(response => {
-        console.log('worked ', response);
-        console.log(response.data);
-        // Object.keys(response.data).map(profileKey => {
-        //   this.setState({
-        //     [profileKey]: response.data[profileKey]
-        //   });
-        // });
-        this.setState({ agenda: response.data.agenda[0] });
-
-        this.setState({ profile: response });
-        this.setState({ data: response.data });
-        let transformedIngredients = Object.keys(response.data.agenda[0]).map(
-          igKey => {
-            return [...Array(response.data.agenda[0][igKey])].map((_, i) => {
-              // console.log('this key', igKey, response.data.agenda[0][igKey]);
-            });
-          }
-        );
+        this.setState({
+          agenda: response.data.agenda[0],
+          lat: response.data.lat,
+          lng: response.data.lng
+        });
       })
       .catch(error => {
         console.log('get user error ');
@@ -55,18 +47,48 @@ class UserAgenda extends Component {
     this.setState({ agendaLoaded: true });
   }
 
+  agendaDate(today) {
+    //props.profileData.date
+
+    today = new Date(today);
+
+    var dayFmt = {
+      weekday: 'long'
+    };
+
+    var dateFmt = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    return renderHTML(
+      `<span className="bold">${today.toLocaleDateString(
+        'en-US',
+        dayFmt
+      )}</span> ${today.toLocaleDateString('en-US', dateFmt)}`
+    );
+  }
+
   render() {
     console.log('data', this.state.data);
     console.log('current login id ', this.state._id);
-    console.log('agenda ', this.state.agenda);
+    console.log('agenda ', this.state.agenda.name);
+    console.log('weather ', this.state.weatherSummary);
     return (
       <section className="bg-wrapper">
         {/* <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre> */}
         <div className="container box" id="agenda">
           <div className="row">
             <UserAgendaSidebar />
-            <UserAgendaInfo profileID={this.state._id} />
-            <UserAgendaDetails agendaID={this.state._id} />
+            <UserAgendaInfo
+              profileData={this.state.agenda}
+              todayIs={this.agendaDate}
+            />
+            <UserAgendaDetails
+              agendaData={this.state.agenda}
+              todayIs={this.agendaDate}
+            />
           </div>
         </div>
       </section>

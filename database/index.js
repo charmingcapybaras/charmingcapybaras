@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 // );
 
 mongoose.connect('mongodb://localhost/fridayhero');
-const User = require('./models/user');
+// const User = require('./models/user');
 const Agenda = require('./models/agenda');
 
 console.log('Connected to DB ..');

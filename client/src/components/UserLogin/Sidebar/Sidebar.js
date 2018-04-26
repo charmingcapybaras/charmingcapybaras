@@ -2,7 +2,7 @@ import React from 'react';
 const sidebar = () => {
   return (
     <div className="col-lg-4 col-md-12 col-sm-12 navigation animated fadeIn">
-      <a className="navbar-brand" href="#">
+      <a className="navbar-brand" href="/">
         Friday Hero
       </a>
 
@@ -15,17 +15,17 @@ const sidebar = () => {
           </a>
         </li>
         <li className="nav-item">
-          <a className="nav-link circle active-circle">Personalize your Friday experiences</a>
-        </li>
-        <li className="nav-item">
           <a className="nav-link circle active-circle">
-            No more wonering what to do with your friends on Friday
+            Personalize your Friday experiences
           </a>
         </li>
         <li className="nav-item">
           <a className="nav-link circle active-circle">
-            Make reservations, buy concert tickets and more
+            No more wondering what to do with your friends on Friday
           </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link circle active-circle">Make reservations.</a>
         </li>
       </ul>
     </div>
