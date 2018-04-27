@@ -6,6 +6,7 @@ var Schema = mongoose.Schema;
 let Agenda = new Schema(
   {
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
+    username: String,
     address: String,
     telephone: String,
     city: String,

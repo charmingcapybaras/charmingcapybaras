@@ -24,9 +24,7 @@ class UserSignup extends Component {
     this.state = {
       step: 0,
       _id: '',
-      firstName: '',
-      lastName: '',
-      username: '', // used for initial creation
+      username: '', // optional
       email: '', // used for initial creation
       address: '',
       city: '',
@@ -85,6 +83,7 @@ class UserSignup extends Component {
     axios
       .post('/agendas/add', {
         user_id: this.state._id,
+        username: this.state.username,
         address: this.state.address,
         city: this.state.city,
         state: this.state.state,

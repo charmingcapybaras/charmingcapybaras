@@ -33,6 +33,7 @@ class UserAgenda extends Component {
       .then(response => {
         this.setState({
           agenda: response.data.agenda[response.data.agenda.length - 1],
+          username: response.data.username,
           lat: response.data.lat,
           lng: response.data.lng
         });
@@ -80,6 +81,7 @@ class UserAgenda extends Component {
             <UserAgendaInfo
               profileData={this.state.agenda}
               todayIs={this.agendaDate}
+              username={this.state.username}
             />
             <UserAgendaDetails
               agendaData={this.state.agenda}

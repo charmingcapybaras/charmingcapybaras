@@ -2,30 +2,13 @@ import React from 'react';
 import Aux from './../../../hoc/Aux/Aux';
 
 const userAgendaInfo = props => {
-  console.log('profileID: ', props.profileData.name);
-  // var dateFmt = {
-  //   weekday: 'long',
-  //   year: 'numeric',
-  //   month: 'long',
-  //   day: 'numeric'
-  // };
-  // const AGENDA_DATE = props.profileData.date.toLocaleDateString(
-  //   'en-EN',
-  //   options
-  // );
-  // console.log(AGENDA_DATE);
-
   var today = new Date(props.profileData.date);
 
   var dayFmt = {
     weekday: 'long'
-    // year: 'numeric',
-    // month: 'long',
-    // day: 'numeric'
   };
 
   var dateFmt = {
-    // weekday: 'long'
     year: 'numeric',
     month: 'long',
     day: 'numeric'
@@ -33,16 +16,15 @@ const userAgendaInfo = props => {
 
   const AGENDA_DAY = today.toLocaleDateString('en-US', dayFmt);
   const AGENDA_DATE = today.toLocaleDateString('en-US', dateFmt);
+  let username = 'Hey!';
+  if (props.username) {
+    username = props.username;
+  }
 
-  // let venuePropertyies = Object.keys(props.profileData).map(igKey => {
-  //   return [...Array(props.profileData[igKey])].map((_, i) => {
-  //     console.log('this key', igKey, props.profileData[igKey]);
-  //   });
-  // });
   return (
     <div className="col-lg-4 col-md-12 col-sm-12 side-content animated fadeIn">
       <h2 className="gen-text">
-        <span className="pink" /> you're a hero!
+        <span className="pink" /> {username}, you're a hero!
       </h2>
       <h3 className="border-text">
         PUT YOUR CAPE ON AND TAKE OFF <span className="fly" />
