@@ -25,7 +25,7 @@ var getEmailAddresses = () => {
       console.log('Retrieved emails');
       //return response.data[1].emailaddress;
       let users = response.data;
-      users.forEach(account => sendEmails(account.emailaddress));
+      users.forEach(account => sendEmails(account.email));
     })
     .catch(err => {
       console.log(err);
@@ -39,8 +39,8 @@ let sendEmails = email => {
       port: 465,
       secure: true,
       auth: {
-        user: 'config.email_user',
-        pass: 'config.email_pwd'
+        user: '',
+        pass: ''
       }
     },
     {

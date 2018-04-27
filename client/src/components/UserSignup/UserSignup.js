@@ -12,7 +12,6 @@ import axios from 'axios';
 import Input from './../../ui/Input/Input';
 import css from './userSignup.css';
 import Aux from './../../hoc/Aux/Aux';
-import Sidebar from './Sidebar/Sidebar';
 import ProfileSidebar from './ProfileSidebar/ProfileSidebar';
 
 // form configuration
@@ -24,10 +23,11 @@ class UserSignup extends Component {
     super(props);
     this.state = {
       step: 0,
+      _id: '',
       firstName: '',
       lastName: '',
-      username: '',
-      email: '',
+      username: '', // used for initial creation
+      email: '', // used for initial creation
       address: '',
       city: '',
       state: '',
@@ -45,13 +45,28 @@ class UserSignup extends Component {
   }
 
   formAdvanceHandler() {
+    if (this.state.step === 0) {
+      axios
+        .post('/community/signup', {
+          password: this.state.password,
+          email: this.state.email
+        })
+        .then(response => {
+          console.log('check if they are a user!! ', response);
+          localStorage.setItem('_fhID', response.data.id);
+          this.setState({ _id: response.data.id });
+          //this.setState({ step: +this.state.step + 1 });
+        })
+        .catch(err => {
+          console.log('problem with checking user account creation', err);
+        });
+    }
     this.setState({ step: +this.state.step + 1 });
-    console.log(this.state.step);
+    // console.log(this.state.step);
   }
 
   formBackHandler() {
     this.setState({ step: +this.state.step - 1 });
-    console.log(this.state.step);
   }
 
   inputChangedHandler(event) {
@@ -68,19 +83,14 @@ class UserSignup extends Component {
     event.preventDefault();
     console.log('submitHandler');
     axios
-      .post('/api/user', {
-        firstName: this.state.firstName,
-        lastName: this.state.lastName,
-        emailaddress: this.state.email,
-        password: this.state.password,
+      .post('/agendas/add', {
+        user_id: this.state._id,
         address: this.state.address,
-        emailaddress: this.state.email,
         city: this.state.city,
         state: this.state.state,
-        zipCode: this.state.zipCode,
+        zip_code: this.state.zipCode,
         price_level: this.state.price_level,
         rating: this.state.rating,
-        gender: this.state.gender,
         status: this.state.status
       })
       .then(response => {
@@ -100,7 +110,11 @@ class UserSignup extends Component {
     } else {
       console.log('submit this thing');
     }
-    let form = <p>Thank you</p>;
+    let form = (
+      <Aux>
+        <h2>Thank you, now go be a hero!</h2>
+      </Aux>
+    );
 
     if (this.state.step <= registration.length - 1) {
       const formElementsArray = [];

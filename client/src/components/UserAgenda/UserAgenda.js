@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
+import renderHTML from 'react-render-html';
 import css from './userAgenda.css';
 
 import UserAgendaSidebar from './UserAgendaSidebar/UserAgendaSidebar';
@@ -11,33 +11,80 @@ class UserAgenda extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: '5adb9571a7284d8d6efa12f5',
-      profile: null
+      _id: null,
+      id: '',
+      profile: [],
+      agenda: [],
+      data: null,
+      lat: '',
+      lng: '',
+      weatherSummary: '',
+      weatherIcon: '',
+      agendaLoaded: false
     };
+    this.agendaDate = this.agendaDate.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ _id: localStorage._fhID });
+    var userID = localStorage._fhID;
     axios
-      .get(`/api/user/${this.state.id}`)
+      .get(`/agendas/${userID}`)
       .then(response => {
-        console.log('get user ', response.data);
-        this.setState({ profile: response.data });
+        this.setState({
+          agenda: response.data.agenda[response.data.agenda.length - 1],
+          lat: response.data.lat,
+          lng: response.data.lng
+        });
       })
       .catch(error => {
-        console.log('get user error ');
+        console.log('get user error ', error);
       });
+
+    this.setState({ agendaLoaded: true });
   }
 
-  // <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre>
+  agendaDate(today) {
+    //props.profileData.date
+
+    today = new Date(today);
+
+    var dayFmt = {
+      weekday: 'long'
+    };
+
+    var dateFmt = {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    };
+
+    return renderHTML(
+      `<span className="bold">${today.toLocaleDateString(
+        'en-US',
+        dayFmt
+      )}</span> ${today.toLocaleDateString('en-US', dateFmt)}`
+    );
+  }
 
   render() {
+    console.log('data', this.state.data);
+    console.log('current login id ', this.state._id);
+
     return (
-      <section class="bg-wrapper">
+      <section className="bg-wrapper">
+        {/* <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre> */}
         <div className="container box" id="agenda">
           <div className="row">
             <UserAgendaSidebar />
-            <UserAgendaInfo />
-            <UserAgendaDetails />
+            <UserAgendaInfo
+              profileData={this.state.agenda}
+              todayIs={this.agendaDate}
+            />
+            <UserAgendaDetails
+              agendaData={this.state.agenda}
+              todayIs={this.agendaDate}
+            />
           </div>
         </div>
       </section>

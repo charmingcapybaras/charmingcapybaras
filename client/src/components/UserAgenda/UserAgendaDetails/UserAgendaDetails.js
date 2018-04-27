@@ -1,62 +1,64 @@
 import React from 'react';
+import renderHTML from 'react-render-html';
+import Iframe from 'react-iframe';
+
 import Aux from './../../../hoc/Aux/Aux';
 import css from './../userAgenda.css';
-const userAgendaDetails = () => {
+import axios from 'axios';
+
+const userAgendaDetails = props => {
+  console.log('userAgendaDetails ', props.agendaData);
+  const VENUE_URL = `${props.agendaData.url}&output=embed`;
+
   return (
     <div className="col-lg-5 col-md-12 col-sm-12 main-content animated fadeIn">
-      <h2 className="con-text">
-        <span className="bold">Friday</span> April 23rd!
-      </h2>
-
+      <h2 className="con-text">{props.todayIs(props.agendaData.date)}</h2>
       <div id="weather-div">
-        <div className="row">
-          <div className="col-lg-2">
-            <i className="fas fa-sun" />
-          </div>
-          <div className="col-lg-10">
-            <h4 className="weather">
-              Todays weather will be Sunny with a high of 78 and a low of 58.
-              Perfect weather for a night out in The Woodlands
-            </h4>
-          </div>
+        <div class="col-lg-2">
+          <canvas
+            id="clear-day"
+            alt={props.agendaData.weatherIcon}
+            width="64"
+            height="64"
+          />
         </div>
+        <div className="col-lg-10">{props.agendaData.weatherSummary}</div>
       </div>
 
       <div className="row">
         <div className="col-lg-7  store-info">
-          <h5 className="store-name">Last Concert Cafe</h5>
-          <h6 className="store-sub-name">Tex-Mex</h6>
-
-          <h6 className="store-add add-top"> 129 South Warehouse</h6>
-          <h6 className="store-add"> The Woodlands, Texas 77382</h6>
+          <h5 className="store-name">{props.agendaData.name}</h5>
+          {/* <h6 className="store-sub-name">{props.agendaData.name}</h6> */}
+          <address className="store-add add-top">
+            {props.agendaData.formatted_address}
+          </address>
         </div>
 
         <div className="col-lg-5">
           <p className="phone">
-            <i className="fas fa-phone" /> 832-679-0998
+            <i className="fas fa-phone" />{' '}
+            {props.agendaData.formatted_phone_number}
           </p>
           <p className="website">
-            <i className="fas fa-globe" /> www.lastconcertcafe.com
+            <i className="fas fa-globe" />{' '}
+            <a href={props.agendaData.website} target="new">
+              {props.agendaData.website}
+            </a>
           </p>
         </div>
       </div>
 
       <div className="row">
-        <div className="col-lg-8 map" />
-
-        <div className="col-lg-4 map">
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-map-marker-alt" /> Location
-          </a>
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-clipboard-check" /> Reserve
-          </a>
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-share-alt" /> Share
-          </a>
-          <a className="link-box back-btn" href="#">
-            <i className="fas fa-smile" /> Rate
-          </a>
+        <div className="col-lg-12 map">
+          <Iframe
+            url={VENUE_URL}
+            height="360px"
+            id="myId"
+            className="myClassname"
+            display="initial"
+            position="relative"
+            allowFullScreen
+          />
         </div>
       </div>
     </div>

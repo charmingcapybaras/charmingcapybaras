@@ -11,7 +11,7 @@ const HomePage = props => {
     <Aux>
       <header className="bg-wrapper">
         <div className="container">
-          <Navigation topNav={props.navigation} />
+          <Navigation topNav={props.navigation} auth={props.auth} />
         </div>
         <Jumbotron />
       </header>
@@ -31,7 +31,7 @@ const HomePage = props => {
                 </h4>
                 <a
                   className="btn btn-primary btn-lg signup-section btn-animated"
-                  href="/user"
+                  href="/signup"
                   role="button"
                 >
                   SIGN UP TODAY
@@ -86,7 +86,7 @@ const HomePage = props => {
               </h4>
               <a
                 className="btn btn-primary btn-lg signup-section btn-animated"
-                href="/user"
+                href="/signup"
                 role="button"
               >
                 SIGN UP TODAY

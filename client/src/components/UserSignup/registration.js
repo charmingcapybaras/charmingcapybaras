@@ -38,32 +38,6 @@ const registration = [
     instruction: 'Your Profile',
     form: [
       {
-        firstName: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'First Name',
-            label: 'First Name'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        lastName: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'Last Name',
-            label: 'Last Name'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
         address: {
           elementType: 'input',
           elementConfig: {
@@ -103,7 +77,7 @@ const registration = [
           },
           valid: false
         },
-        zipCode: {
+        zip_code: {
           elementType: 'input',
           elementConfig: {
             type: 'text',
@@ -124,15 +98,41 @@ const registration = [
     instruction: 'Basic Info',
     form: [
       {
+        // firstName: {
+        //   elementType: 'input',
+        //   elementConfig: {
+        //     type: 'text',
+        //     placeholder: 'First Name',
+        //     label: 'First Name'
+        //   },
+        //   value: '',
+        //   validation: {
+        //     required: true
+        //   },
+        //   valid: false
+        // },
+        // lastName: {
+        //   elementType: 'input',
+        //   elementConfig: {
+        //     type: 'text',
+        //     placeholder: 'Last Name',
+        //     label: 'Last Name'
+        //   },
+        //   value: '',
+        //   validation: {
+        //     required: true
+        //   },
+        //   valid: false
+        // },
         price_level: {
           elementType: 'number',
           elementConfig: {
             type: 'number',
             step: '1',
-            min: 0,
-            max: 5,
-            placeholder: 'Price Range',
-            label: 'Price Range'
+            min: 1,
+            max: 4,
+            placeholder: 'Price Range 1-4',
+            label: 'Your Dining Price Range'
           },
           value: '',
           validation: {
@@ -145,36 +145,10 @@ const registration = [
           elementConfig: {
             type: 'number',
             step: '1',
-            min: 0,
-            max: 5,
-            placeholder: 'Rating',
-            label: 'Rating'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        status: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'Status',
-            label: 'Status'
-          },
-          value: '',
-          validation: {
-            required: true
-          },
-          valid: false
-        },
-        gender: {
-          elementType: 'input',
-          elementConfig: {
-            type: 'text',
-            placeholder: 'Gender',
-            label: 'Gender'
+            min: 1,
+            max: 4,
+            placeholder: 'Rating  1-4',
+            label: 'What sort of Rating'
           },
           value: '',
           validation: {
