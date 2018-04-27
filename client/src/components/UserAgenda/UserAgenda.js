@@ -12,7 +12,7 @@ class UserAgenda extends Component {
     super(props);
     this.state = {
       _id: null,
-      id: '', //  5adb9571a7284d8d6efa12f5
+      id: '',
       profile: [],
       agenda: [],
       data: null,
@@ -26,22 +26,19 @@ class UserAgenda extends Component {
   }
 
   componentDidMount() {
-    // util.checkUser();
     this.setState({ _id: localStorage._fhID });
     var userID = localStorage._fhID;
-
-    console.log('==================== agenda ========================');
     axios
       .get(`/agendas/${userID}`)
       .then(response => {
         this.setState({
-          agenda: response.data.agenda[0],
+          agenda: response.data.agenda[response.data.agenda.length - 1],
           lat: response.data.lat,
           lng: response.data.lng
         });
       })
       .catch(error => {
-        console.log('get user error ');
+        console.log('get user error ', error);
       });
 
     this.setState({ agendaLoaded: true });

@@ -24,7 +24,7 @@ router.get(
 );
 
 router.get('/user', (req, res, next) => {
-  User.find(function(err, itms) {
+  User.find({}, 'email', function(err, itms) {
     if (err) {
       console.log(err);
     } else {

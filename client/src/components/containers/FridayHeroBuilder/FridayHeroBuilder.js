@@ -26,7 +26,6 @@ import About from '../../About/About';
 import Contact from '../../Contact/Contact';
 import Advertise from '../../Advertise/Advertise';
 
-
 class FridayHeroBuilder extends Component {
   constructor(props) {
     super(props);
@@ -85,7 +84,6 @@ class FridayHeroBuilder extends Component {
             )}
           />
           <Route exact path="/signup" component={UserSignup} />
-          <Route exact path="/daren" component={UserSignup} />
           <Route exact path="/login" component={UserLogin} />
           <Route
             exact
@@ -123,8 +121,7 @@ class FridayHeroBuilder extends Component {
             path="/advertise"
             render={props => <Advertise navigation={this.state.navigation} />}
           />
-          {/* <Footer /> */}
-        </div>
+        </Switch>
       </BrowserRouter>
     );
   }

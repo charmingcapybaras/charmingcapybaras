@@ -25,20 +25,6 @@ router.use(
     cookie: { secure: false }
   })
 );
-// router.use(passport.initialize());
-// router.use(passport.session());
-
-// Routes
-// router.get('/', function(req, res) {
-//   // res.render('index', {
-//   //   title: 'Express',
-//   //   user: req.user
-//   // });
-// });
-
-// router.get('/signup', function(req, res) {
-//   console.log('user:', req);
-// });
 
 router.post('/signup', function(req, res) {
   var user = new User({

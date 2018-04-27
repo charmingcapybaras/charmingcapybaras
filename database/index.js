@@ -1,12 +1,5 @@
-// const dbUser = process.env.DB_USER;
-// const dbPwd = process.env.DB_PASS;
 const mongoose = require('mongoose');
-// mongoose.connect('mongodb://localhost/fridayhero');
-// mongoose.connect(
-//   'mongodb://fontmonger:Pr3tty1nPinK@ds121599.mlab.com:21599/rpt05'
-// );
-
-mongoose.connect('mongodb://localhost/fridayhero');
+mongoose.connect(process.env.MONGOOSE);
 // const User = require('./models/user');
 const Agenda = require('./models/agenda');
 

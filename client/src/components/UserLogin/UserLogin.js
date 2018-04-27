@@ -115,7 +115,7 @@ class UserLogin extends Component {
                     <div className="col-md-6 col-sm-12">
                       <p className="check-if-login">
                         Want to be a hero?{' '}
-                        <a href="#" className="underline">
+                        <a href="/signup" className="underline">
                           Start today
                         </a>
                       </p>
