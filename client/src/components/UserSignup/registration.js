@@ -1,9 +1,24 @@
+import { Z_DEFAULT_COMPRESSION } from 'zlib';
+
 const registration = [
   {
     step: 1,
     instruction: 'Set Up An Account',
     form: [
       {
+        username: {
+          elementType: 'input',
+          elementConfig: {
+            type: 'text',
+            placeholder: 'What do we call you?',
+            label: 'Username'
+          },
+          value: '',
+          validation: {
+            required: false
+          },
+          valid: false
+        },
         email: {
           elementType: 'input',
           elementConfig: {

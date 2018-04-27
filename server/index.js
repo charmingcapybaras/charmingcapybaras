@@ -8,7 +8,7 @@ var util = require('./../helpers/user-status');
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
 
-// const worker = require('../workers/agenda-helper'); // chron job
+const worker = require('../workers/agenda-helper'); // chron job
 
 // call express
 const app = express();

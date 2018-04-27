@@ -42,7 +42,7 @@ const userAgendaDetails = props => {
           <p className="website">
             <i className="fas fa-globe" />{' '}
             <a href={props.agendaData.website} target="new">
-              {props.agendaData.website}
+              {props.agendaData.name}
             </a>
           </p>
         </div>

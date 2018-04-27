@@ -17,24 +17,6 @@ router.use(
     cookie: { secure: false }
   })
 );
-// var userSchema = new mongoose.Schema({
-//   username: { type: String },
-//   email: { type: String, required: true, unique: true },
-//   password: { type: String, required: true },
-//   resetPasswordToken: String,
-//   resetPasswordExpires: Date
-// });
-
-// userSchema.methods.comparePassword = function(candidatePassword, cb) {
-//   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-//     if (err) return cb(err);
-//     cb(null, isMatch);
-//   });
-// };
-
-// var User = mongoose.model('User', userSchema);
-
-// mongoose.connect('mongodb://localhost/fridayhero');
 
 router.post('/login', function(req, res) {
   console.log('post to /login');
@@ -48,27 +30,20 @@ router.post('/login', function(req, res) {
       //if not found
       console.log('your email is not in the database');
       return res.redirect(301, '/login');
-      // var redir = { redirect: '/login' };
-      // return res.json(redir);
     } else {
+      //if found
       console.log('found user now check password', password);
-      //using bcrypt
-      console.log('what is this ', found.get('password'));
       bcrypt.compare(password, found.get('password'), function(err, correct) {
         console.log('correct ', correct);
         if (correct) {
           //set up a session
           util.newSession(req, res, found);
-          console.log('go@');
-          console.log('found', found);
           var redir = { redirect: '/agenda', _user: found._id };
           return res.json(redir);
-          // return res.redirect('/agenda');
         } else {
           console.log('Your password is inccorrect');
-          return res.redirect(301, '/login');
+          // return res.redirect(301, '/login');
           var redir = { redirect: '/login' };
-          // return res.json(redir);
         }
       });
     }
@@ -76,11 +51,10 @@ router.post('/login', function(req, res) {
 });
 
 // logout
-
 router.post('/signup', function(req, res) {
   var email = req.body.email;
   var password = req.body.password;
-  console.log('req.body.email', email);
+
   new User({
     email: email
   });
@@ -88,8 +62,8 @@ router.post('/signup', function(req, res) {
     if (!found) {
       bcrypt.hash(password, null, null, function(err, hash) {
         User.create({
-          email: email, // 'sampleUser'
-          password: hash // 'password'
+          email: email,
+          password: hash
         })
           .then(function(found) {
             //TODO: create session helper function
@@ -106,7 +80,6 @@ router.post('/signup', function(req, res) {
       });
     } else {
       //if not found
-      //TODO: create
       console.log('User already exists');
       res.status(200).json({ alert: 'User already exists' });
     }
