@@ -71,7 +71,7 @@ userSchema.methods.comparePassword = function(candidatePassword, cb) {
 
 var User = mongoose.model('User', userSchema);
 
-mongoose.connect('mongodb://localhost/authentication');
+mongoose.connect(process.env.MONGOOSE);
 
 var app = express();
 

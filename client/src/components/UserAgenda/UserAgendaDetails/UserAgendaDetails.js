@@ -13,8 +13,17 @@ const userAgendaDetails = props => {
   return (
     <div className="col-lg-5 col-md-12 col-sm-12 main-content animated fadeIn">
       <h2 className="con-text">{props.todayIs(props.agendaData.date)}</h2>
-
-      <div id="weather-div">weather goes here</div>
+      <div id="weather-div">
+        <div class="col-lg-2">
+          <canvas
+            id="clear-day"
+            alt={props.agendaData.weatherIcon}
+            width="64"
+            height="64"
+          />
+        </div>
+        <div className="col-lg-10">{props.agendaData.weatherSummary}</div>
+      </div>
 
       <div className="row">
         <div className="col-lg-7  store-info">

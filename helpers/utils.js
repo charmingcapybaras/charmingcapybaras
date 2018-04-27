@@ -3,7 +3,7 @@ var axios = require('axios');
 const _ = require('underscore');
 var config = require('../config/config');
 
-mongoose.connect('mongodb://127.0.0.1/fridayhero');
+mongoose.connect(process.env.MONGOOSE);
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 var Agenda = require('./../database/models/agenda');

@@ -73,8 +73,7 @@ class UserAgenda extends Component {
   render() {
     console.log('data', this.state.data);
     console.log('current login id ', this.state._id);
-    console.log('agenda ', this.state.agenda.name);
-    console.log('weather ', this.state.weatherSummary);
+
     return (
       <section className="bg-wrapper">
         {/* <pre>{JSON.stringify(this.state.profile, undefined, 2)}</pre> */}

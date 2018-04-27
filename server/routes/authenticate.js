@@ -19,7 +19,7 @@ router.post('/login', (req, res) => {
     console.log('foundOne ', found);
     if (!found) {
       console.log('your user is not in the database');
-      res.redirect(301, 'http://localhost:3000/user');
+      res.redirect(301, '/user');
     } else {
       console.log('found user now checking password');
 

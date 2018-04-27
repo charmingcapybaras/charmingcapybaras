@@ -1,13 +1,13 @@
+require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('../database/index');
 var session = require('express-session');
 var util = require('./../helpers/user-status');
-
 var cookieParser = require('cookie-parser');
 var passport = require('passport');
-require('dotenv').config();
+
 const worker = require('../workers/agenda-helper'); // chron job
 
 // call express
