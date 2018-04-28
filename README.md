@@ -10,9 +10,9 @@
 ## Table of Contents
 
 1. [Requirements](#requirements)
+1. [User Interface](https://github.com/charmingcapybaras/charmingcapybaras/wiki/FridayHero-UI)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)    
 1. Component Architecture
    1. [Authentication](https://github.com/charmingcapybaras/charmingcapybaras/wiki/User-Signup)
    1. [Agenda](https://github.com/charmingcapybaras/charmingcapybaras/wiki/User-Agenda)
