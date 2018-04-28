@@ -20,7 +20,7 @@
 1. [Database Architecture](https://github.com/charmingcapybaras/charmingcapybaras/wiki/Database-Architecture)   
 1. [Team](#team)
 
-
+![](https://github.com/charmingcapybaras/charmingcapybaras/blob/master/documentation/fridayHero.png)
 
 ## Requirements
 
