@@ -9,21 +9,18 @@
 
 ## Table of Contents
 
-1. [Usage](#Usage)
 1. [Requirements](#requirements)
 1. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
     1. [Tasks](#tasks)    
 1. Component Architecture
-   1. Authentication
-   1. Agenda
-   1. Notifications
+   1. [Authentication](https://github.com/charmingcapybaras/charmingcapybaras/wiki/User-Signup)
+   1. [Agenda](https://github.com/charmingcapybaras/charmingcapybaras/wiki/User-Agenda)
+   1. [Notifications](https://github.com/charmingcapybaras/charmingcapybaras/wiki/User-Notifications)
+1. [Database Architecture](https://github.com/charmingcapybaras/charmingcapybaras/wiki/Database-Architecture)   
 1. [Team](#team)
-1. [Contributing](#contributing)
 
-## Usage
 
-> Some usage instructions
 
 ## Requirements
 
@@ -41,6 +38,20 @@ From within the root directory:
 ```sh
 npm install
 ```
+Runs all tests suites with code coverage flag
+
+```sh
+npm run test
+```
+Spins up the dev server
+```sh
+npm run server-dev
+```
+Starts webpack in watch mode to keep track of changed files
+```sh
+npm run react-dev
+```
+
 ### Required environment variables
 via .env file are
 - MAIL_USER (your mail server login)
@@ -52,6 +63,17 @@ via .env file are
 - EMAIL_CHRON=*/1 * * * *
 - AGENDA_CHRON=* 10 * * *
 - START_CHRON=FALSE
+
+### !Important Notes
+Using Nodeman you will need to configure your mailserver or endpoint from within the:
+Server > Nodemailer > sendEmail.js
+
+The chron job by default will not start running on start. You will set START_CHRON to TRUE and restart the server to kick-off the Chron job interval tha is configurable by the EMAIL_CHRON and AGENDA_CHRON.
+
+AGENDA_CHRON = interval that the system gets new agendas
+
+EMAIL_CHRON = interval that the email is sent out
+
 
 ### Roadmap
 
